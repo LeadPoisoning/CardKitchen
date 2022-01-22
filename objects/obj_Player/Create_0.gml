@@ -11,7 +11,3 @@ deck[| i++] = 1;
 deck[| i++] = 2;
 deck[| i++] = 1;
 deck[| i++] = 2;
-
-deckCount = i;
-handCount = 0;
-discardCount = 0;
