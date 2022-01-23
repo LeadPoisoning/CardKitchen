@@ -19,3 +19,11 @@ function DrawCards(_numCards){
 		// create card object in hand
 	}
 }
+
+function DiscardCard(_pos) {
+	if (hand[| _pos] != undefined) {
+		var discardSize = ds_list_size(discard);
+		discard[| discardSize] = hand[| _pos];
+		ds_list_delete(hand, _pos);
+	}
+}
