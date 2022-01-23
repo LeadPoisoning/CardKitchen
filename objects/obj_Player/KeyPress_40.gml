@@ -1,0 +1,1 @@
+DiscardCard(2);
