@@ -1,0 +1,1 @@
+cardStack = ds_list_create(); //maybe change to stack
