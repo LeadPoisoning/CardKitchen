@@ -17,6 +17,7 @@ function DrawCards(_numCards){
 		ds_list_delete(deck, deckSize - 1);
 		
 		// create card object in hand
+		
 	}
 }
 
