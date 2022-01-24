@@ -1,6 +1,6 @@
 // Contains functions used for controlling Deck, Hand, and Discard
 
-function DrawCards(_numCards){
+function DrawCards(_numCards) { //obj_Player
 	for (var i = 0; i < _numCards; i++) {
 		var deckSize = ds_list_size(deck);
 		
@@ -21,7 +21,7 @@ function DrawCards(_numCards){
 	}
 }
 
-function DiscardCard(_pos) {
+function DiscardCard(_pos) { //obj_Player
 	if (hand[| _pos] != undefined) {
 		var discardSize = ds_list_size(discard);
 		discard[| discardSize] = hand[| _pos];
