@@ -6,8 +6,30 @@ x = mouse_x;
 y = mouse_y;
 
 if (clicked) {
-	heldCard = collision_point(x, y, obj_Card , false, true);
-	if (heldCard != noone && !heldCard.faceUp) {
+	
+	//try to click a card
+	var clickedCardList = ds_list_create();
+	collision_point_list(x, y, obj_Card, false, true, clickedCardList,false);
+	//if click multiple, get the one with the least depth
+	var numClicked = ds_list_size(clickedCardList);
+	if(numClicked == 1)
+		heldCard = clickedCardList[| 0];
+	else if (numClicked > 1) {
+		heldCard = clickedCardList[| 0];
+		//get least depth card
+		for(var i = 1; i < numClicked; i++) {
+			var test = clickedCardList[| i];
+			if(test.depth < heldCard.depth)
+				heldCard = test;
+		}
+	}
+	
+	//clean up
+	ds_list_destroy(clickedCardList);
+	
+	
+	
+	if (heldCard != noone && !heldCard.faceUp) { // if there was no card
 		heldCard = noone;
 	} else {
 		// remove card from every slot
@@ -34,7 +56,7 @@ if (right_clicked) { //flip face up
 if (released) {
 	if (heldCard != noone) { // Dropping a card 
 		
-		with( heldCard) {
+		with( heldCard ) {
 			var hand = player.hand;
 			
 			// Check if it is being dropped on a slot
@@ -44,17 +66,21 @@ if (released) {
 				// put card in slotstack
 				ds_list_add(slot.cardStack,id);
 			} else {
-				// check if not over slot
-				for (i = 0; i < ds_list_size(hand); i++) {
+				
+				// if not over slot, place in hand
+				for (i = 0; i < ds_list_size(hand); i++) { // place according to x pos on screen
 					if (x < hand[| i].x) {
 						ds_list_insert(hand, i, id);
 						other.heldCard = noone;
 						break;
 					}
 				}
+				// if it made it past the for loop (meaning too far to the right)
 				if (other.heldCard != noone) {
 					ds_list_add(hand, id);
 				}
+				
+				
 			}
 		}	
 	}
@@ -62,7 +88,9 @@ if (released) {
 	heldCard = noone;
 }
 
+// Update card that is being held
 if (heldCard != noone) {
+	heldCard.depth = 100;
 	heldCard.xTo = x;
 	heldCard.yTo = y;
 }

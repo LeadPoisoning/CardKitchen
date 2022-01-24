@@ -1,4 +1,4 @@
-mouse = instance_create_layer(mouse_x, mouse_y, "Focus", obj_Mouse);
+mouse = instance_create_layer(mouse_x, mouse_y, "FG", obj_Mouse);
 deck = ds_list_create();
 hand = ds_list_create();
 discard = ds_list_create();
