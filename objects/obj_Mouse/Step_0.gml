@@ -9,7 +9,7 @@ if (clicked) {
 	heldCard = collision_point(x, y, obj_Card , false, true);
 }
 
-if (right_clicked) {
+if (right_clicked) { //flip face up
 	var target = collision_point(x, y, obj_Card , false, true);
 	if(target != noone)
 		target.faceUp = !target.faceUp;
