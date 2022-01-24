@@ -62,25 +62,61 @@ if (released) {
 			// Check if it is being dropped on a slot
 			if( place_meeting(x,y,obj_Slot) ) {
 				var slot = instance_nearest(x,y,obj_Slot);
+				//if the slot is full, cancel and put it pack in hand
+				
 
 				// put card in slotstack
 				ds_list_add(slot.cardStack,id);
 			} else {
-				
-				// if not over slot, place in hand
-				for (i = 0; i < ds_list_size(hand); i++) { // place according to x pos on screen
-					if (x < hand[| i].x) {
-						ds_list_insert(hand, i, id);
-						other.heldCard = noone;
-						break;
+				// Check if it is being dropped on a card that is in a slot
+				var cardOverlap = instance_place(x,y,obj_Card);//get the colliding card
+				if ( cardOverlap != noone ) {
+					var slotStack = noone;
+					for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the cad
+						var testStack = instance_find(obj_Slot,i).cardStack;
+						var index = ds_list_find_index(testStack,cardOverlap);
+						if(index != -1) {
+							slotStack = testStack;
+							break;
+						}
 					}
-				}
-				// if it made it past the for loop (meaning too far to the right)
-				if (other.heldCard != noone) {
-					ds_list_add(hand, id);
-				}
+					//slot stack now holds either noone or a reference to the ds_list holding that card
+					if(slotStack != noone) {
+						
+						//if the slot is full, cancel and put it pack in hand
+						
+
+						// put card in slotstack
+						ds_list_add(slotStack,id);
+					} else {
+						// if the card it collided is not in a slot, place in hand
+						for (i = 0; i < ds_list_size(hand); i++) { // place according to x pos on screen
+							if (x < hand[| i].x) {
+								ds_list_insert(hand, i, id);
+								other.heldCard = noone;
+								break;
+							}
+						}
+						// if it made it past the for loop (meaning too far to the right)
+						if (other.heldCard != noone) {
+							ds_list_add(hand, id);
+						}
+					}
+				} else {
+					// if not over a slot OR a card, place in hand
+					for (i = 0; i < ds_list_size(hand); i++) { // place according to x pos on screen
+						if (x < hand[| i].x) {
+							ds_list_insert(hand, i, id);
+							other.heldCard = noone;
+							break;
+						}
+					}
+					// if it made it past the for loop (meaning too far to the right)
+					if (other.heldCard != noone) {
+						ds_list_add(hand, id);
+					}
 				
-				
+				}
 			}
 		}	
 	}
