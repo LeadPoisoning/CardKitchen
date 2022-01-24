@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_TestCardBack",
-    "path": "sprites/spr_TestCardBack/spr_TestCardBack.yy",
+    "name": "spr_TestCard1",
+    "path": "sprites/spr_TestCard1/spr_TestCard1.yy",
   },
   "solid": false,
   "visible": true,

@@ -1,4 +1,4 @@
-function InitCardInfoGrid(){
+function InitCardInfoGrid() { //obj_Player
 	global.cardInfo = ds_grid_create(20, 20);
 	
 	// y values:
