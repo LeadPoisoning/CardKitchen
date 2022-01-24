@@ -24,13 +24,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"LayerId":{"name":"e000d209-cb2b-4f0d-a2e4-3d6444e26a84","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"LayerId":{"name":"75ded5fa-c588-4edd-9e5e-dc277e4e8674","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_CardChoppedMato","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"resourceVersion":"1.0","name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"LayerId":{"name":"e000d209-cb2b-4f0d-a2e4-3d6444e26a84","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"LayerId":{"name":"75ded5fa-c588-4edd-9e5e-dc277e4e8674","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_CardMatoChopped","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"resourceVersion":"1.0","name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_CardChoppedMato","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},
+    "spriteId": {"name":"spr_CardMatoChopped","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -42,7 +42,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"15609c3e-79d9-4cf3-b670-3ca5137abc46","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"15609c3e-79d9-4cf3-b670-3ca5137abc46","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"57461b39-17ad-4021-a7e5-6d3eaf55441e","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -59,9 +59,9 @@
     "yorigin": 64,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_CardChoppedMato","path":"sprites/spr_CardChoppedMato/spr_CardChoppedMato.yy",},
+    "parent": {"name":"spr_CardMatoChopped","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_CardChoppedMato",
+    "name": "spr_CardMatoChopped",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -75,7 +75,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_CardChoppedMato",
+  "name": "spr_CardMatoChopped",
   "tags": [],
   "resourceType": "GMSprite",
 }
