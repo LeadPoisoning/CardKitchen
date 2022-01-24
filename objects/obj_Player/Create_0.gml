@@ -15,19 +15,19 @@ handStartX = 100;
 handStartY = 640;
 
 var i = 0;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 1;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 1;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 1;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 1;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 2;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 2;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 2;
-deck[| i] = instance_create_layer(deckX, deckY, "Field", obj_Card);
-deck[| i++].cardType = 2;
+repeat(4) {
+	var card = instance_create_layer(deckX, deckY, "Field", obj_Card);
+	card.cardType = 1;
+	card.xTo = deckX;
+	card.yTo = deckY;
+	deck[| i++] = card;
+	
+}
+repeat(4) {
+	var card = instance_create_layer(deckX, deckY, "Field", obj_Card);
+	card.cardType = 2;
+	card.xTo = deckX;
+	card.yTo = deckY;
+	deck[| i++] = card;
+	
+}

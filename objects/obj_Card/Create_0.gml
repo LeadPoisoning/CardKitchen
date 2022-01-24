@@ -8,4 +8,3 @@ sprite_index = global.cardInfo[# 0, 0];
 
 cardW = player.cardW;
 cardH = player.cardH;
-
