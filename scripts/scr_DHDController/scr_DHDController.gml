@@ -14,8 +14,6 @@ function DrawCards(_numCards){
 		}
 		
 		ds_list_add(hand, deck[| deckSize - 1]);
-		hand[| ds_list_size(hand) - 1].cardId = deck[| deckSize - 1];
-		hand[| ds_list_size(hand) - 1].inHand = true;
 		ds_list_delete(deck, deckSize - 1);
 		
 	}
