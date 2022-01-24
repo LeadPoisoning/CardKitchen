@@ -1,5 +1,5 @@
 function InitCardInfoGrid() { //obj_Player
-	global.cardInfo = ds_grid_create(1, 1);
+	global.cardInfo = ds_grid_create(20, 20);
 	
 	// y values:
 	//		0 = sprite
