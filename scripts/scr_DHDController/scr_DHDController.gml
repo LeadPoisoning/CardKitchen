@@ -3,6 +3,7 @@
 function DrawCards(_numCards) { //obj_Player
 	for (var i = 0; i < _numCards; i++) {
 		var deckSize = ds_list_size(deck);
+		var handSize = ds_list_size(hand);
 		
 		// shuffle discard into deck if no deck
 		if (deckSize == 0) {
@@ -14,6 +15,8 @@ function DrawCards(_numCards) { //obj_Player
 		}
 		
 		ds_list_add(hand, deck[| deckSize - 1]);
+		handSize++;
+		hand[| handSize - 1].faceUp = true;
 		ds_list_delete(deck, deckSize - 1);
 		
 	}

@@ -1,14 +1,19 @@
 var dBetweenCards = 0;
-if (mouse.heldCard == noone) {
-	dBetweenCards = 820/(ds_list_size(hand) - 1)
+var handSize = ds_list_size(hand);
+
+if (handSize != 1) {
+	dBetweenCards = 820/(handSize - 1);
 } else {
-	dBetweenCards = 820/(ds_list_size(hand) - 2)
+	dBetweenCards = 0;
 }
 
-var j = 0;
 for (i = 0; i < ds_list_size(hand); i++) {
 	if (hand[| i] != mouse.heldCard) {
-		hand[| i].xTo = handStartX + j++ * dBetweenCards;
+		if (handSize != 1) {
+			hand[| i].xTo = handStartX + i * dBetweenCards;
+		} else {
+			hand[| i].xTo = room_width/2;
+		}
 		hand[| i].yTo = handStartY;
 	}
 }
