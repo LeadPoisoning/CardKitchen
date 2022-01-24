@@ -14,15 +14,16 @@ discardY = 600 - cardH*3/2;
 handStartX = 272;
 handStartY = 640;
 
-var i = 0;
+var i = 1;
 repeat(4) {
-	var card = instance_create_layer(deckX, deckY, "Field", obj_Card);
-	card.cardId = 1;
+	var card = instance_create_layer(deckX, deckY, "Field", obj_FoodCard);
+	card.cardId = i mod 2 + 1;
 	card.xTo = deckX;
 	card.yTo = deckY;
 	deck[| i++] = card;
 	
 }
+/*
 repeat(4) {
 	var card = instance_create_layer(deckX, deckY, "Field", obj_Card);
 	card.cardId = 2;
@@ -31,3 +32,4 @@ repeat(4) {
 	deck[| i++] = card;
 	
 }
+*/
