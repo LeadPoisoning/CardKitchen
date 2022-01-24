@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_TestCardBack",
+    "path": "sprites/spr_TestCardBack/spr_TestCardBack.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

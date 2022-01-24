@@ -12,6 +12,7 @@
     {"id":{"name":"scr_DHDController","path":"scripts/scr_DHDController/scr_DHDController.yy",},"order":0,},
     {"id":{"name":"spr_TestCard2","path":"sprites/spr_TestCard2/spr_TestCard2.yy",},"order":1,},
     {"id":{"name":"spr_TestCard1","path":"sprites/spr_TestCard1/spr_TestCard1.yy",},"order":0,},
+    {"id":{"name":"spr_TestDeck","path":"sprites/spr_TestDeck/spr_TestDeck.yy",},"order":4,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

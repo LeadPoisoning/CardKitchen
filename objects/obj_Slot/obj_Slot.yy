@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_TestSlot",
+    "path": "sprites/spr_TestSlot/spr_TestSlot.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

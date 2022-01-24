@@ -1,4 +1,4 @@
-var clicked = mouse_check_button(mb_left);
+var clicked = mouse_check_button_pressed(mb_left);
 var released = mouse_check_button_released(mb_left);
 
 x = mouse_x;
@@ -13,6 +13,9 @@ if (released) {
 }
 
 if (heldCard != noone) {
-	heldCard.toX = x;
-	heldCard.toY = y;
+	show_debug_message(heldCard);
+	heldCard.xTo = x-15;
+	heldCard.yTo = y-15;
+} else {
+	show_debug_message("none");
 }
