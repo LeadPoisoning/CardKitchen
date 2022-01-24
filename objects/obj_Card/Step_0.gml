@@ -1,4 +1,4 @@
-//sprite_index = global.cardInfo[# cardId, 0];
+sprite_index = global.cardInfo[# cardId, 0];
 
 var dist = point_distance(x,y,xTo,yTo);
 if (dist > 2) {

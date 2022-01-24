@@ -11,7 +11,8 @@ if (clicked) {
 
 if (right_clicked) {
 	var target = collision_point(x, y, obj_Card , false, true);
-	target.faceUp = !target.faceUp;
+	if(target != noone)
+		target.faceUp = !target.faceUp;
 }
 
 if (released) {
