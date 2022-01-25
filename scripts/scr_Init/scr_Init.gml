@@ -34,7 +34,7 @@ function InitFoodCardInfo() { //obj_Player
 	ds_grid_add(global.foodCardInfo, i, 2, "Chopped, red, vegatable");
 	i++;
 	
-	ds_grid_add(global.foodCardInfo, i, 0, spr_TestCardSalad);
+	ds_grid_add(global.foodCardInfo, i, 0, spr_CardSalad);
 	ds_grid_add(global.foodCardInfo, i, 1, "Salad");
 	ds_grid_add(global.foodCardInfo, i, 2, "A spinch and tomato salad");
 	i++;
