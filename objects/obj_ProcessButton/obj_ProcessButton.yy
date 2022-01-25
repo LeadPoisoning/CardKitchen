@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_TestCardSpinch",
-    "path": "sprites/spr_TestCardSpinch/spr_TestCardSpinch.yy",
+    "name": "spr_TestButton",
+    "path": "sprites/spr_TestButton/spr_TestButton.yy",
   },
   "solid": false,
   "visible": true,
@@ -23,16 +23,15 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Cards",
-    "path": "folders/Objects/Cards.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_Card",
+  "name": "obj_ProcessButton",
   "tags": [],
   "resourceType": "GMObject",
 }
