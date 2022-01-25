@@ -19,17 +19,17 @@ function InitFoodCardInfo() { //obj_Player
 	
 	var i = 0;
 	
-	ds_grid_add(global.foodCardInfo, i, 0, spr_TestCardSpinch);
+	ds_grid_add(global.foodCardInfo, i, 0, spr_CardSpinch);
 	ds_grid_add(global.foodCardInfo, i, 1, "Spinch");
 	ds_grid_add(global.foodCardInfo, i, 2, "Green, leafy vegatable");
 	i++;
 	
-	ds_grid_add(global.foodCardInfo, i, 0, spr_TestCardMato);
+	ds_grid_add(global.foodCardInfo, i, 0, spr_CardMato);
 	ds_grid_add(global.foodCardInfo, i, 1, "Mato");
 	ds_grid_add(global.foodCardInfo, i, 2, "Red vegatable");
 	i++;
 	
-	ds_grid_add(global.foodCardInfo, i, 0, spr_TestCardMatoChopped);
+	ds_grid_add(global.foodCardInfo, i, 0, spr_CardMatoChopped);
 	ds_grid_add(global.foodCardInfo, i, 1, "Copped Mato");
 	ds_grid_add(global.foodCardInfo, i, 2, "Chopped, red, vegatable");
 	i++;
@@ -51,7 +51,7 @@ function InitProcCardInfo() {
 	
 	var i = 0;
 	
-	ds_grid_add(global.procCardInfo, i, 0, spr_TestCardKnife);
+	ds_grid_add(global.procCardInfo, i, 0, spr_ProcKnife);
 	ds_grid_add(global.procCardInfo, i, 1, "Knife");
 	ds_grid_add(global.procCardInfo, i, 2, "A knife");
 	i++;
