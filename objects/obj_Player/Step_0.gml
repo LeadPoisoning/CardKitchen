@@ -2,7 +2,7 @@ var dBetweenCards = 0;
 var handSize = ds_list_size(hand);
 
 if (handSize != 1) {
-	dBetweenCards = 820/(handSize - 1);
+	dBetweenCards = 606/(handSize - 1);
 } else {
 	dBetweenCards = 0;
 }

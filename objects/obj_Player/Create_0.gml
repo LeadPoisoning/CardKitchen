@@ -9,11 +9,11 @@ InitProcCheck();
 
 cardW = 96;
 cardH = 128;
-deckX = 1000;
+deckX = 100;
 deckY = 600;
 discardX = 1000;
 discardY = 600 - cardH*3/2;
-handStartX = 272;
+handStartX = 380;
 handStartY = 640;
 
 var i = 0;
