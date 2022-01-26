@@ -1,3 +1,5 @@
+#region ------------ INPUTS ------------
+
 var clicked = mouse_check_button_pressed(mb_left);
 var right_clicked = mouse_check_button_pressed(mb_right);
 var released = mouse_check_button_released(mb_left);
@@ -5,6 +7,9 @@ var released = mouse_check_button_released(mb_left);
 x = mouse_x;
 y = mouse_y;
 
+#endregion
+
+#region ------------ LEFT CLICK ------------
 if (clicked) {
 	
 	//try to click a card
@@ -46,15 +51,19 @@ if (clicked) {
 			ds_list_delete(hand,handIndex);
 	}
 }
+#endregion
 
-if (right_clicked) { //flip face up
-	var target = collision_point(x, y, obj_Card , false, true);
-	if(target != noone)
-		target.faceUp = !target.faceUp;
-}
+//if (right_clicked) { //flip face up
+//	var target = collision_point(x, y, obj_Card , false, true);
+//	if(target != noone)
+//		target.faceUp = !target.faceUp;
+//}
+
+#region ------------ RELEASE LEFT ------------
 
 if (released) {
-	if (heldCard != noone) { // Dropping a card 
+	// Dropping a card if one is held
+	if (heldCard != noone) {
 		
 		with( heldCard ) {
 			var hand = player.hand;
@@ -63,12 +72,12 @@ if (released) {
 			if( place_meeting(x,y,obj_Slot) ) {
 				var slot = instance_nearest(x,y,obj_Slot);
 				//if the slot is full, cancel and put it pack in hand
-				
+				// TODO
 
 				// put card in slotstack
 				ds_list_add(slot.cardStack,id);
 			} else {
-				// Check if it is being dropped on a card that is in a slot
+				// Check if it is being dropped onto a card that is in a slot
 				var cardOverlap = instance_place(x,y,obj_Card);//get the colliding card
 				if ( cardOverlap != noone ) {
 					var slotStack = noone;
@@ -89,7 +98,8 @@ if (released) {
 						// put card in slotstack
 						ds_list_add(slotStack,id);
 					} else {
-						// if the card it collided is not in a slot, place in hand
+						// if the card it collided is not in a slot
+						//place in hand
 						for (i = 0; i < ds_list_size(hand); i++) { // place according to x pos on screen
 							if (x < hand[| i].x) {
 								ds_list_insert(hand, i, id);
@@ -103,7 +113,8 @@ if (released) {
 						}
 					}
 				} else {
-					// if not over a slot OR a card, place in hand
+					// if not over a slot OR a card
+					//place in hand
 					for (i = 0; i < ds_list_size(hand); i++) { // place according to x pos on screen
 						if (x < hand[| i].x) {
 							ds_list_insert(hand, i, id);
@@ -123,6 +134,8 @@ if (released) {
 	
 	heldCard = noone;
 }
+
+#endregion
 
 // Update card that is being held
 if (heldCard != noone) {
