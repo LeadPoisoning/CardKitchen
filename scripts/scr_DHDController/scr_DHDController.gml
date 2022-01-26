@@ -30,15 +30,19 @@ function DiscardCard(_pos) { //obj_Player
 	}
 }
 
-function CreateCard( _x, _y, _type, _id) {
+function CreateCard( _x, _y, _type, _id) { //obj_Player, obj_Shop?
 	var newCard = noone;
 	switch (_type) {
 		case cardTypes.food:
 			newCard = instance_create_layer(_x, _y, "Field", obj_FoodCard);
+			newCard.cardId = _id;
+			newCard.sprite_index = global.foodCardInfo[# _id, 0];
 			break;
 			
 		case cardTypes.process:
 			newCard = instance_create_layer(_x, _y, "Field", obj_ProcCard);
+			newCard.cardId = _id;
+			newCard.sprite_index = global.procCardInfo[# _id, 0];
 			break;
 		/*	
 		case cardTypes.restaurant:
