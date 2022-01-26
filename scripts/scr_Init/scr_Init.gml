@@ -1,3 +1,9 @@
+enum cardTypes {
+	food,
+	process,
+	restaurant
+}
+
 enum foodCard {
 	spinch,
 	mato,
@@ -41,7 +47,7 @@ function InitFoodCardInfo() { //obj_Player
 	
 }
 
-function InitProcCardInfo() {
+function InitProcCardInfo() { //obj_Player
 	global.procCardInfo = ds_grid_create(20, 20);
 	
 	// y values:
@@ -58,7 +64,7 @@ function InitProcCardInfo() {
 	
 }
 
-function InitProcCheck() {
+function InitProcCheck() { //obj_Player
 	global.procCheck = ds_grid_create(20, 20);
 	
 	// x values: process

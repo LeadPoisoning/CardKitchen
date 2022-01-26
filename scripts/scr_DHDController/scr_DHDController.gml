@@ -29,3 +29,25 @@ function DiscardCard(_pos) { //obj_Player
 		ds_list_delete(hand, _pos);
 	}
 }
+
+function CreateCard( _x, _y, _type, _id) {
+	var newCard = noone;
+	switch (_type) {
+		case cardTypes.food:
+			newCard = instance_create_layer(_x, _y, "Field", obj_FoodCard);
+			break;
+			
+		case cardTypes.process:
+			newCard = instance_create_layer(_x, _y, "Field", obj_ProcCard);
+			break;
+		/*	
+		case cardTypes.restaurant:
+			newCard = instance_create_layer(_x, _y, "Field", obj_RestCard);
+		*/
+		
+		default:
+			return noone;
+	}
+	
+	return newCard;
+}
