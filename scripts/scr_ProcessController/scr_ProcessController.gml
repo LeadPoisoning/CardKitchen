@@ -5,11 +5,18 @@ function acceptCard(inCard) { // obj_Slot
 }
 
 function canProcessSlot(slot) {
-	
+	var stack = slot.cardStack;
 	//TODO
 	
 	//if there are two process cards
-		//false
+	var procCount = 0;
+	for(var i = 0; i < ds_list_size(stack); i++) {
+		if( stack[| i].object_index == obj_ProcCard )//find the proc card
+			procCount++;
+	
+	}
+	if(procCount > 1)
+		return false;
 		
 	//if there are 
 	
@@ -27,7 +34,7 @@ function processSlot(slot) {
 	
 	// go through the cards
 	for(var i = 0; i < ds_list_size(stack); i++) {
-		var currentCard = ds_list_find_value(stack,i);
+		var currentCard = stack[| i];
 		
 		//find the proc card
 		if( currentCard.object_index == obj_ProcCard )
@@ -41,7 +48,7 @@ function processSlot(slot) {
 	
 	//if proccard == noone
 		//TODO lookup a valid reciped
-		//do it
+		//do it`
 		
 	//else
 		//TODO: lookup a valid process

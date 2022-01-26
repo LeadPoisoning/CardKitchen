@@ -9,6 +9,60 @@ y = mouse_y;
 
 #endregion
 
+#region ------------ HOVER ------------
+
+//resetCards
+obj_Card.hover = false;
+obj_Slot.hover = false;
+hoverCard = noone;
+
+//if not holding card
+if(heldCard == noone) {
+
+	//check if hovering card
+	
+	//check hand and slots
+	if(position_meeting(x,y,obj_Card)) {
+			// get card hovering on
+			var checkCard = instance_nearest(x,y,obj_Card);
+			//if its not in the hand ignore it
+			if(ds_list_find_index(player.hand,checkCard) != -1)
+			//if(checkCard.faceUp)
+				hoverCard = checkCard;
+			//}
+	}
+		
+	//check each slot
+		//for each card in that slot stack
+			//if its the last card in the stack
+				//check the full rectangle of the card
+			//else
+				//check a rectangle the size of the slot gap
+					
+	if (hoverCard != noone) {
+		hoverCard.depth = 100;
+		hoverCard.hover = true;
+	}
+		
+	//check if hovering button
+		//button.hover = true;
+
+//if holding card
+} else{
+
+	//check if hovering a slot
+	for(var i = 0; i < instance_number(obj_Slot); i++) {
+		//check if held card is colliding with rectangle;
+		//height of rect = list_size-2 * gap + cardheight
+	}
+			
+			
+		//if hover slot != noone;
+			//slot.hover = true;
+}
+
+#endregion
+
 #region ------------ LEFT CLICK ------------
 if (clicked) {
 	

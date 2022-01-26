@@ -7,3 +7,5 @@ cardW = player.cardW;
 cardH = player.cardH;
 
 faceUp = false;
+
+hover = false;

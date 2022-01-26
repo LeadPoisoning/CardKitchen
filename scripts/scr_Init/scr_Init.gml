@@ -1,5 +1,6 @@
 enum foodCard {
 	spinch,
+	spinchChopped,
 	mato,
 	matoChopped,
 	salad
@@ -63,7 +64,8 @@ function InitProcCheck() {
 	
 	// x values: process
 	// y values: food
-	
+				//list			  //x			  //y			 //result value
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.mato, foodCard.matoChopped);
+	ds_grid_add(global.procCheck, procCard.knife, foodCard.spinch, foodCard.spinchChopped  );
 	
 }

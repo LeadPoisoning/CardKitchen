@@ -1,1 +1,3 @@
-cardStack = ds_list_create(); //maybe change to stack
+cardStack = ds_list_create(); //maybe change to ds_stack?
+
+hover = false;
