@@ -1,16 +1,18 @@
 {
   "resources": [
     {"id":{"name":"spr_CardMato","path":"sprites/spr_CardMato/spr_CardMato.yy",},"order":1,},
+    {"id":{"name":"obj_startGameButton","path":"objects/obj_startGameButton/obj_startGameButton.yy",},"order":11,},
     {"id":{"name":"spr_TestSlot","path":"sprites/spr_TestSlot/spr_TestSlot.yy",},"order":3,},
     {"id":{"name":"scr_ProcessController","path":"scripts/scr_ProcessController/scr_ProcessController.yy",},"order":1,},
     {"id":{"name":"fnt_Reg","path":"fonts/fnt_Reg/fnt_Reg.yy",},"order":0,},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":1,},
+    {"id":{"name":"obj_TestShop","path":"objects/obj_TestShop/obj_TestShop.yy",},"order":10,},
     {"id":{"name":"spr_ProcKnife","path":"sprites/spr_ProcKnife/spr_ProcKnife.yy",},"order":5,},
     {"id":{"name":"obj_Mouse","path":"objects/obj_Mouse/obj_Mouse.yy",},"order":3,},
     {"id":{"name":"spr_CardSpinch","path":"sprites/spr_CardSpinch/spr_CardSpinch.yy",},"order":4,},
     {"id":{"name":"spr_CardMatoChopped","path":"sprites/spr_CardMatoChopped/spr_CardMatoChopped.yy",},"order":2,},
+    {"id":{"name":"TestShop","path":"rooms/TestShop/TestShop.yy",},"order":4,},
     {"id":{"name":"scr_Init","path":"scripts/scr_Init/scr_Init.yy",},"order":2,},
-    {"id":{"name":"TestShop","path":"rooms/TestShop/TestShop.yy",},"order":2,},
     {"id":{"name":"obj_Game","path":"objects/obj_Game/obj_Game.yy",},"order":9,},
     {"id":{"name":"obj_Button","path":"objects/obj_Button/obj_Button.yy",},"order":8,},
     {"id":{"name":"Init","path":"rooms/Init/Init.yy",},"order":3,},
@@ -25,7 +27,7 @@
     {"id":{"name":"spr_CardSalad","path":"sprites/spr_CardSalad/spr_CardSalad.yy",},"order":3,},
     {"id":{"name":"obj_FoodCard","path":"objects/obj_FoodCard/obj_FoodCard.yy",},"order":2,},
     {"id":{"name":"spr_TestDeck","path":"sprites/spr_TestDeck/spr_TestDeck.yy",},"order":4,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"Kitchen","path":"rooms/Kitchen/Kitchen.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Main","path":"options/main/options_main.yy",},
@@ -43,7 +45,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Init","path":"rooms/Init/Init.yy",},},
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Kitchen","path":"rooms/Kitchen/Kitchen.yy",},},
     {"roomId":{"name":"TestShop","path":"rooms/TestShop/TestShop.yy",},},
   ],
   "Folders": [

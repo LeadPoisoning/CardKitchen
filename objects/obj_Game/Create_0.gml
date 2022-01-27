@@ -11,11 +11,13 @@ var i = 0;
 repeat(8) {
 	var card = CreateCard(0, 0, cardTypes.food, i mod 2);
 	card.persistent = true;
+	card.visible = false;
 	global.baseDeck[| i++] = card;
 	
 }
 var card = CreateCard(0, 0, cardTypes.process, 0);
 card.persistent = true;
+card.visible = false;
 global.baseDeck[| i++] = card;
 
-room_goto(Room1);
+room_goto(TestShop);

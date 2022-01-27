@@ -32,10 +32,10 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_34E93341","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_22353940","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_23D24726","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_1024AC02","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_34E93341","path":"rooms/Kitchen/Kitchen.yy",},
+    {"name":"inst_22353940","path":"rooms/Kitchen/Kitchen.yy",},
+    {"name":"inst_23D24726","path":"rooms/Kitchen/Kitchen.yy",},
+    {"name":"inst_1024AC02","path":"rooms/Kitchen/Kitchen.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -63,7 +63,7 @@
     "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Room1",
+  "name": "Kitchen",
   "tags": [],
   "resourceType": "GMRoom",
 }

@@ -16,6 +16,7 @@ for (var i = 0; i < ds_list_size(global.baseDeck); i++) {
 	card.yTo = deckY;
 	card.x = deckX;
 	card.y = deckY;
+	card.visible = true;
 	ds_list_add(deck, card);
 }
 
