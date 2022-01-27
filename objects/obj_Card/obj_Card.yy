@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_TestCardSpinch",
-    "path": "sprites/spr_TestCardSpinch/spr_TestCardSpinch.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
