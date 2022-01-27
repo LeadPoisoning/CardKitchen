@@ -17,7 +17,7 @@ handStartX = 380;
 handStartY = 640;
 
 var i = 0;
-repeat(4) {
+repeat(8) {
 	var card = CreateCard(deckX, deckY, cardTypes.food, i mod 2);
 	card.xTo = deckX;
 	card.yTo = deckY;
@@ -29,19 +29,6 @@ card.xTo = deckX;
 card.yTo = deckY;
 deck[| i++] = card;
 
-repeat(8) {
-	var card = instance_create_layer(deckX, deckY, "Field", obj_FoodCard);
-	card.cardId = i mod 2;
-	card.xTo = deckX;
-	card.yTo = deckY;
-	deck[| i++] = card;
-	
-}
-var card = instance_create_layer(deckX, deckY, "Field", obj_ProcCard);
-card.cardId = 0;
-card.xTo = deckX;
-card.yTo = deckY;
-deck[| i++] = card;
 
 /*
 repeat(4) {
