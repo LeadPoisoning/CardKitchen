@@ -1,6 +1,6 @@
 // Contains functions used for controlling Deck, Hand, and Discard
 
-function ShuffleDiscard() { //obj_Player
+function ShuffleDiscard() { // obj_Player
 	ds_list_copy(deck, discard);
 	ds_list_clear(discard);
 	ds_list_shuffle(deck);
@@ -11,7 +11,7 @@ function ShuffleDiscard() { //obj_Player
 	}
 }
 
-function DrawCards(_numCards) { //obj_Player
+function DrawCards(_numCards) { // obj_Player
 	for (var i = 0; i < _numCards; i++) {
 		var deckSize = ds_list_size(deck);
 		var handSize = ds_list_size(hand);
@@ -31,17 +31,19 @@ function DrawCards(_numCards) { //obj_Player
 	}
 }
 
-function DiscardCard(_card) { //obj_Player
-	var pos = ds_list_find_index(hand,_card);
-	_card.xTo = discardX;
-	_card.yTo = discardY;
-	if (pos != -1) {
-		ds_list_add(discard,_card);
-		ds_list_delete(hand, pos);
+function DiscardCard(_card) { // obj_Player
+	if (_card != noone && _card != undefined) {
+		var pos = ds_list_find_index(hand, _card);
+		_card.xTo = discardX;
+		_card.yTo = discardY;
+		if (pos != -1) {
+			ds_list_add(discard,_card);
+			ds_list_delete(hand, pos);
+		}
 	}
 }
 
-function CreateCard( _x, _y, _type, _id) { //obj_Player, obj_Shop?
+function CreateCard( _x, _y, _type, _id) { // obj_Player, obj_Game, obj_CardChoice
 	var newCard = noone;
 	switch (_type) {
 		case cardTypes.food:

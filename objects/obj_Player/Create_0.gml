@@ -10,17 +10,13 @@ discardY = deckY - global.cardH*3/2;
 handStartX = 380;
 handStartY = 640;
 
-var i = 0;
-repeat(8) {
-	var card = CreateCard(deckX, deckY, cardTypes.food, i mod 2);
+for (var i = 0; i < ds_list_size(global.baseDeck); i++) {
+	var card = global.baseDeck[| i];
 	card.xTo = deckX;
 	card.yTo = deckY;
-	deck[| i++] = card;
-	
+	card.x = deckX;
+	card.y = deckY;
+	ds_list_add(deck, card);
 }
-var card = CreateCard(deckX, deckY, cardTypes.process, 0);
-card.xTo = deckX;
-card.yTo = deckY;
-deck[| i++] = card;
 
 global.dayTurnCount = 0;
