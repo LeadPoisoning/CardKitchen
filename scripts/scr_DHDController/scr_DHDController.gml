@@ -31,27 +31,6 @@ function DrawCards(_numCards) { // obj_Player
 	}
 }
 
-function DiscardCard(_card) { // obj_Player
-	if (_card != noone && _card != undefined) {
-		var pos = ds_list_find_index(hand, _card);
-		_card.xTo = discardX;
-		_card.yTo = discardY;
-		if (pos != -1) {
-			ds_list_add(discard,_card);
-			ds_list_delete(hand, pos);
-		}
-	}
-	
-	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
-		var testStack = instance_find(obj_Slot,i).cardStack;
-		var Spos = ds_list_find_index(hand,_card);
-		if (Spos != -1) {
-			ds_list_add(discard,_card);
-			ds_list_delete(hand, Spos);
-		}
-	}
-}
-
 function CreateCard( _x, _y, _type, _id) { // obj_Player, obj_Game, obj_CardChoice
 	var newCard = noone;
 	switch (_type) {
@@ -82,19 +61,42 @@ function CreateCard( _x, _y, _type, _id) { // obj_Player, obj_Game, obj_CardChoi
 	return newCard;
 }
 
-function DestroyCard(_card) {
-	var pos = ds_list_find_index(hand,_card);
+function DestroyCard(_card) { //agnostic
+	var _player = obj_Player;
+	
+	var pos = ds_list_find_index(_player.hand,_card);
 	if (pos != -1) {
-		ds_list_delete(hand, pos);
+		ds_list_delete(_player.hand, pos);
 	}
 	
 	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
 		var testStack = instance_find(obj_Slot,i).cardStack;
-		var Spos = ds_list_find_index(hand,_card);
+		var Spos = ds_list_find_index(testStack,_card);
 		if (Spos != -1) {
-			ds_list_delete(hand, Spos);
+			ds_list_delete(testStack, Spos);
 		}
 	}
 	
 	instance_destroy(_card);
+}
+
+function DiscardCard(_card) { //agnostic
+	var _player = obj_Player;
+	
+	if (_card != noone && _card != undefined) {
+		var pos = ds_list_find_index(_player.hand, _card);
+		if (pos != -1) {
+			ds_list_delete(_player.hand, pos);
+		}
+	}
+	
+	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
+		var testStack = instance_find(obj_Slot,i).cardStack;
+		var Spos = ds_list_find_index(testStack,_card);
+		if (Spos != -1) {
+			ds_list_delete(testStack, Spos);
+		}
+	}
+	
+	ds_list_add(_player.discard,_card);
 }

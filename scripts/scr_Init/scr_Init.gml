@@ -38,9 +38,9 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_add(global.foodCardInfo, foodCard.mato, 2, "Red vegatable");
 	i++;
 	
-	ds_grid_add(global.foodCardInfo, foodCard.matoChopped, 0, spr_CardMatoChopped);
-	ds_grid_add(global.foodCardInfo, foodCard.matoChopped, 1, "Copped Mato");
-	ds_grid_add(global.foodCardInfo, foodCard.matoChopped, 2, "Chopped, red, vegatable");
+	ds_grid_add(global.foodCardInfo, foodCard.spinchChopped, 0, spr_CardSpinchChopped);
+	ds_grid_add(global.foodCardInfo, foodCard.spinchChopped, 1, "Copped Spinch");
+	ds_grid_add(global.foodCardInfo, foodCard.spinchChopped, 2, "Chopped, green, leafy vegatable");
 	i++;
 	
 	ds_grid_add(global.foodCardInfo, foodCard.matoChopped, 0, spr_CardMatoChopped);
@@ -102,4 +102,5 @@ function CleanupGrids() { // obj_Game
 	ds_grid_destroy(global.foodCardInfo);
 	ds_grid_destroy(global.procCardInfo);
 	ds_grid_destroy(global.procCheck);
+	ds_grid_destroy(global.recipeCheck);
 }

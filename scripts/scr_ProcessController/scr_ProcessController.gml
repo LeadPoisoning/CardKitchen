@@ -58,7 +58,7 @@ function processSlot(slot) {  // obj_processButton
 	var unprocList = ds_list_create();
 	var usedList = ds_list_create();
 	
-	var procCard = noone;
+	var currentProc = noone;
 	var stack = slot.cardStack;
 	
 	// go through the cards
@@ -67,7 +67,7 @@ function processSlot(slot) {  // obj_processButton
 		
 		//find the proc card
 		if( currentCard.object_index == obj_ProcCard )
-			procCard = currentCard;
+			currentProc = currentCard;
 		
 		// add all food cards to the unprocList;
 		if( currentCard.object_index == obj_FoodCard )
@@ -75,15 +75,16 @@ function processSlot(slot) {  // obj_processButton
 	
 	}
 	
-	if (procCard == noone) {
+	if (currentProc == noone) {
 		show_debug_message("No proc, checking recipes");
 		
 		//TODO lookup a valid recipe
 		//do it`
 		
 	} else {
-		show_debug_message("Proc is ");// + string(global.procCardInfo[# procCard.cardId, 1 ]));
+		show_debug_message("Proc is " + string(global.procCardInfo[# currentProc.cardId, 1 ]));
 		
+		processFood(currentProc,unprocList);
 		//TODO: lookup a valid process
 		//do it
 	}
@@ -93,7 +94,7 @@ function processSlot(slot) {  // obj_processButton
 	
 }
 
-function processFood(_process, _ingredientList) {
+function processFood(_process, _ingredientList, _usedList) { //obj_ProcessButton
 	//assume precondition that ingredients list contains the same item?
 	
 	for(var i = 0; i < ds_list_size(_ingredientList); i++) {
@@ -110,12 +111,13 @@ function processFood(_process, _ingredientList) {
 			DestroyCard(foodItem);
 			
 	}
+	//HOW TO DO USED LIST :?
 	
 	//return p
 	DiscardCard(_process)
 }
 
-function combineRecipe(ingredientList) {
+function assembleRecipe(ingredientList) { //obj_ProcessButton
 	
 	//for each x in the recipe's
 	

@@ -39,9 +39,9 @@ for (i = 0; i < handSize; i++) {
 
 #region ------------ Send Cards to Discard ------------
 for (i = 0; i < ds_list_size(discard); i++) {
-	hand[| i].xTo = discardX;
-	hand[| i].yTo = discardY;
-	hand[| i].depth = 299 - i;
+	discard[| i].xTo = discardX;
+	discard[| i].yTo = discardY;
+	discard[| i].depth = 299 - i;
 }
 
 #endregion
