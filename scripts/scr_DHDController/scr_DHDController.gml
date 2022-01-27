@@ -22,11 +22,19 @@ function DrawCards(_numCards) { //obj_Player
 	}
 }
 
-function DiscardCard(_pos) { //obj_Player
+function DiscardCardPos(_pos) { //obj_Player
 	if (hand[| _pos] != undefined) {
 		var discardSize = ds_list_size(discard);
 		discard[| discardSize] = hand[| _pos];
 		ds_list_delete(hand, _pos);
+	}
+}
+
+function DiscardCard(_card) { //obj_Player
+	var pos = ds_list_find_index(hand,_card);
+	if (pos != -1) {
+		ds_list_add(discard,_card);
+		ds_list_delete(hand, pos);
 	}
 }
 

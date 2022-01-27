@@ -1,1 +1,1 @@
-DiscardCard(2);
+DiscardCardPos(2);
