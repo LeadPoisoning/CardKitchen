@@ -3,16 +3,10 @@ deck = ds_list_create();
 hand = ds_list_create();
 discard = ds_list_create();
 
-InitFoodCardInfo();
-InitProcCardInfo();
-InitProcCheck();
-
-cardW = 96;
-cardH = 128;
 deckX = 100;
 deckY = 600;
 discardX = deckX;
-discardY = deckY - cardH*3/2;
+discardY = deckY - global.cardH*3/2;
 handStartX = 380;
 handStartY = 640;
 

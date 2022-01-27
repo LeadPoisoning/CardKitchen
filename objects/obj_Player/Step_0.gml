@@ -16,7 +16,7 @@ if (handSize <= 1) {
 }
 
 // position each card
-for (i = 0; i < ds_list_size(hand); i++) {
+for (i = 0; i < handSize; i++) {
 	
 	//only target cards in hand
 	if (hand[| i] != mouse.heldCard) {

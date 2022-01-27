@@ -16,7 +16,7 @@ enum procCard {
 	knife
 }
 
-function InitFoodCardInfo() { //obj_Player
+function InitFoodCardInfo() { // obj_Game
 	global.foodCardInfo = ds_grid_create(20, 20);
 	
 	// y values:
@@ -48,7 +48,7 @@ function InitFoodCardInfo() { //obj_Player
 	
 }
 
-function InitProcCardInfo() { //obj_Player
+function InitProcCardInfo() { // obj_Game
 	global.procCardInfo = ds_grid_create(20, 20);
 	
 	// y values:
@@ -65,13 +65,19 @@ function InitProcCardInfo() { //obj_Player
 	
 }
 
-function InitProcCheck() { //obj_Player
+function InitProcCheck() { // obj_Game
 	global.procCheck = ds_grid_create(20, 20);
 	
 	// x values: process
 	// y values: food
 				//list			  //x			  //y			 //result value
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.mato, foodCard.matoChopped);
-	ds_grid_add(global.procCheck, procCard.knife, foodCard.spinch, foodCard.spinchChopped  );
+	ds_grid_add(global.procCheck, procCard.knife, foodCard.spinch, foodCard.spinchChopped);
 	
+}
+
+function CleanupGrids() { // obj_Game
+	ds_grid_destroy(global.foodCardInfo);
+	ds_grid_destroy(global.procCardInfo);
+	ds_grid_destroy(global.procCheck);
 }
