@@ -14,22 +14,29 @@ y = mouse_y;
 //resetCards
 obj_Card.hover = false;
 obj_Slot.hover = false;
+obj_Button.hover = false;
 hoverCard = noone;
 
 //if not holding card
 if(heldCard == noone) {
+	
+	//check if hovering button
+	if(position_meeting(x,y,obj_Button)) {
+		var button = instance_nearest(x,y,obj_Button);
+		button.hover = true;
+	}
 
 	//check if hovering card
 	
-	//check hand and slots
+		//check inside hand only
 	if(position_meeting(x,y,obj_Card)) {
-			// get card hovering on
-			var checkCard = instance_nearest(x,y,obj_Card);
-			//if its not in the hand ignore it
-			if(ds_list_find_index(player.hand,checkCard) != -1)
-			//if(checkCard.faceUp)
-				hoverCard = checkCard;
-			//}
+		// get card hovering on
+		var checkCard = instance_nearest(x,y,obj_Card);
+		//if its not in the hand ignore it
+		if(ds_list_find_index(player.hand,checkCard) != -1)
+		//if(checkCard.faceUp)
+			hoverCard = checkCard;
+		//}
 	}
 		
 	//check each slot

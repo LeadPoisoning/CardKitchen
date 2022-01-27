@@ -37,17 +37,33 @@ function canProcessSlot(slot) {  // obj_processButton
 	var stack = slot.cardStack;
 	//TODO
 	
-	//if there are two process cards
+	//false if there are two process cards
 	var procCount = 0;
+	var currentProc = noone;
 	for(var i = 0; i < ds_list_size(stack); i++) {
-		if( stack[| i].object_index == obj_ProcCard )//find the proc card
+		if( stack[| i].object_index == obj_ProcCard ) {//find the proc card
+			currentProc = stack[| i];
 			procCount++;
-	
+		}
 	}
-	if(procCount > 1)
+	if(procCount > 1) {
+		show_debug_message("too many proc");
 		return false;
+	}
+	
+	if(currentProc != noone) {
+		//false if any cards cannot be processed by the current process (ie their output == noone)
+		for(var i = 0; i < ds_list_size(stack); i++) {
+			if( stack[| i].object_index == obj_FoodCard ) {//find the proc card
+				if( global.procCheck[# currentProc.cardId, stack[| i].cardId] == noone ) {
+					show_debug_message("cannot proc a card");
+					return false;
+				}
+			}
+		}
+	}
 		
-	//if there are none they must all fit a recipe
+	//false if there are none they must all fit a recipe
 	
 	return true;
 	
@@ -119,6 +135,7 @@ function processFood(_process, _ingredientList, _usedList) { //obj_ProcessButton
 
 function assembleRecipe(ingredientList) { //obj_ProcessButton
 	
+	//for each 
 	//for each x in the recipe's
 	
 	//return

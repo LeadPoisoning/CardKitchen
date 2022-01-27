@@ -1,3 +1,5 @@
+//set room width and camera and gui stuff;
+
 InitFoodCardInfo();
 InitProcCardInfo();
 InitProcCheck();

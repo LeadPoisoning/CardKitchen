@@ -89,6 +89,9 @@ function InitProcCheck() { // obj_Game
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.mato, foodCard.matoChopped);
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.spinch, foodCard.spinchChopped);
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.tato, foodCard.tatoChopped);
+	ds_grid_add(global.procCheck, procCard.knife, foodCard.matoChopped, noone);
+	ds_grid_add(global.procCheck, procCard.knife, foodCard.spinchChopped, noone);
+	ds_grid_add(global.procCheck, procCard.knife, foodCard.tatoChopped, noone);
 	
 }
 
