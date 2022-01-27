@@ -95,7 +95,10 @@ function processSlot(slot) {  // obj_processButton
 }
 
 function processFood(_process, _ingredientList, _usedList) { //obj_ProcessButton
+	//assume precondition that every card being processed has an output
 	//assume precondition that ingredients list contains the same item?
+	
+	DiscardCard(_process)
 	
 	for(var i = 0; i < ds_list_size(_ingredientList); i++) {
 		var foodItem = _ingredientList[| i];
@@ -112,9 +115,6 @@ function processFood(_process, _ingredientList, _usedList) { //obj_ProcessButton
 			
 	}
 	//HOW TO DO USED LIST :?
-	
-	//return p
-	DiscardCard(_process)
 }
 
 function assembleRecipe(ingredientList) { //obj_ProcessButton

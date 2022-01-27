@@ -83,11 +83,9 @@ function DestroyCard(_card) { //agnostic
 function DiscardCard(_card) { //agnostic
 	var _player = obj_Player;
 	
-	if (_card != noone && _card != undefined) {
-		var pos = ds_list_find_index(_player.hand, _card);
-		if (pos != -1) {
-			ds_list_delete(_player.hand, pos);
-		}
+	var pos = ds_list_find_index(_player.hand, _card);
+	if (pos != -1) {
+		ds_list_delete(_player.hand, pos);
 	}
 	
 	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
@@ -98,5 +96,6 @@ function DiscardCard(_card) { //agnostic
 		}
 	}
 	
+	_card.faceUp = true;
 	ds_list_add(_player.discard,_card);
 }

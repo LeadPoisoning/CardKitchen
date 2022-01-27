@@ -10,7 +10,14 @@ global.baseDeck = ds_list_create();
 
 var i = 0;
 repeat(9) {
-	var card = CreateCard(0, 0, cardTypes.food, i mod 2);
+	var card = noone;
+	if(i mod 3 == 0)
+		card = CreateCard(0, 0, cardTypes.food, foodCard.mato);
+	else if(i mod 3 == 1)
+		card = CreateCard(0, 0, cardTypes.food, foodCard.tato);
+	else
+		card = CreateCard(0, 0, cardTypes.food, foodCard.spinch);
+		
 	card.persistent = true;
 	card.visible = false;
 	global.baseDeck[| i++] = card;
