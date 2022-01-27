@@ -1,15 +1,24 @@
 // Contains functions used for controlling Deck, Hand, and Discard
 
-function DrawCards(_numCards) { //obj_Player
+function ShuffleDiscard() { // obj_Player
+	ds_list_copy(deck, discard);
+	ds_list_clear(discard);
+	ds_list_shuffle(deck);
+	for (var j = 0; j < ds_list_size(deck); j++) {
+		deck[| j].xTo = deckX;
+		deck[| j].yTo = deckY;
+		deck[| j].faceUp = false;
+	}
+}
+
+function DrawCards(_numCards) { // obj_Player
 	for (var i = 0; i < _numCards; i++) {
 		var deckSize = ds_list_size(deck);
 		var handSize = ds_list_size(hand);
 		
 		// shuffle discard into deck if no deck
 		if (deckSize == 0) {
-			ds_list_copy(deck, discard);
-			ds_list_clear(discard);
-			ds_list_shuffle(deck);
+			ShuffleDiscard();
 			deckSize = ds_list_size(deck);
 			if (deckSize == 0) return; // discard was empty
 		}
@@ -22,19 +31,15 @@ function DrawCards(_numCards) { //obj_Player
 	}
 }
 
-function DiscardCardPos(_pos) { //obj_Player
-	if (hand[| _pos] != undefined) {
-		var discardSize = ds_list_size(discard);
-		discard[| discardSize] = hand[| _pos];
-		ds_list_delete(hand, _pos);
-	}
-}
-
-function DiscardCard(_card) { //obj_Player
-	var pos = ds_list_find_index(hand,_card);
-	if (pos != -1) {
-		ds_list_add(discard,_card);
-		ds_list_delete(hand, pos);
+function DiscardCard(_card) { // obj_Player
+	if (_card != noone && _card != undefined) {
+		var pos = ds_list_find_index(hand, _card);
+		_card.xTo = discardX;
+		_card.yTo = discardY;
+		if (pos != -1) {
+			ds_list_add(discard,_card);
+			ds_list_delete(hand, pos);
+		}
 	}
 	
 	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
@@ -47,7 +52,7 @@ function DiscardCard(_card) { //obj_Player
 	}
 }
 
-function CreateCard( _x, _y, _type, _id) { //obj_Player, obj_Shop?
+function CreateCard( _x, _y, _type, _id) { // obj_Player, obj_Game, obj_CardChoice
 	var newCard = noone;
 	switch (_type) {
 		case cardTypes.food:

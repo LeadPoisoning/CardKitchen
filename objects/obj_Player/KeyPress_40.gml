@@ -1,1 +1,1 @@
-DiscardCardPos(2);
+DiscardCard(hand[| 0]);
