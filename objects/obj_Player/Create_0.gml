@@ -23,16 +23,4 @@ card.xTo = deckX;
 card.yTo = deckY;
 deck[| i++] = card;
 
-
-/*
-repeat(4) {
-	var card = instance_create_layer(deckX, deckY, "Field", obj_Card);
-	card.cardId = 2;
-	card.xTo = deckX;
-	card.yTo = deckY;
-	deck[| i++] = card;
-	
-}
-*/
-
 global.dayTurnCount = 0;
