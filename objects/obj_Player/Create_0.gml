@@ -11,8 +11,8 @@ cardW = 96;
 cardH = 128;
 deckX = 100;
 deckY = 600;
-discardX = 1000;
-discardY = 600 - cardH*3/2;
+discardX = deckX;
+discardY = deckY - cardH*3/2;
 handStartX = 380;
 handStartY = 640;
 
