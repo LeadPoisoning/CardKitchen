@@ -47,7 +47,7 @@ function canProcessSlot(slot) {  // obj_processButton
 		}
 	}
 	if(procCount > 1) {
-		show_debug_message("too many proc");
+		show_debug_message("too many proc cards");
 		return false;
 	}
 	
@@ -56,7 +56,7 @@ function canProcessSlot(slot) {  // obj_processButton
 		for(var i = 0; i < ds_list_size(stack); i++) {
 			if( stack[| i].object_index == obj_FoodCard ) {//find the proc card
 				if( global.procCheck[# currentProc.cardId, stack[| i].cardId] == noone ) {
-					show_debug_message("cannot proc a card");
+					show_debug_message("cannot run a food with this process");
 					return false;
 				}
 			}
