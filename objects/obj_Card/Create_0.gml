@@ -9,3 +9,6 @@ cardH = player.cardH;
 faceUp = false;
 
 hover = false;
+
+cardTitle = "";
+cardDesc = "";

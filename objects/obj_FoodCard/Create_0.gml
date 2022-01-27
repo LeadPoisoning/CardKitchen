@@ -4,3 +4,4 @@ event_inherited();
 
 cardId = 0;
 sprite_index = spr_TestCardBack;
+uses = 1;

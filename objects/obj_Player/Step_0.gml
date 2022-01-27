@@ -38,4 +38,13 @@ for (i = 0; i < ds_list_size(hand); i++) {
 #endregion
 
 #region ------------ Send Cards to Discard ------------
+for (i = 0; i < ds_list_size(discard); i++) {
+	hand[| i].xTo = discardX;
+	hand[| i].yTo = discardY;
+	hand[| i].depth = 299 - i;
+}
+
+#endregion
+
+#region ------------ Send Draw Cards to Deck ------------
 #endregion

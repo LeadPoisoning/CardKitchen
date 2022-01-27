@@ -6,6 +6,7 @@ discard = ds_list_create();
 InitFoodCardInfo();
 InitProcCardInfo();
 InitProcCheck();
+InitRecipeCheck();
 
 cardW = 96;
 cardH = 128;

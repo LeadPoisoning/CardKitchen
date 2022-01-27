@@ -67,21 +67,23 @@ function processSlot(slot) {  // obj_processButton
 		
 		//find the proc card
 		if( currentCard.object_index == obj_ProcCard )
-			procCard = currentCard.cardId;
+			procCard = currentCard;
 		
 		// add all food cards to the unprocList;
 		if( currentCard.object_index == obj_FoodCard )
-			ds_list_add(unprocList,currentCard.cardId);
+			ds_list_add(unprocList,currentCard);
 	
 	}
 	
 	if (procCard == noone) {
 		show_debug_message("No proc, checking recipes");
-		//TODO lookup a valid reciped
+		
+		//TODO lookup a valid recipe
 		//do it`
 		
 	} else {
-		show_debug_message("Proc is " + string(global.procCardInfo[# procCard, 1 ]));
+		show_debug_message("Proc is ");// + string(global.procCardInfo[# procCard.cardId, 1 ]));
+		
 		//TODO: lookup a valid process
 		//do it
 	}
@@ -91,7 +93,29 @@ function processSlot(slot) {  // obj_processButton
 	
 }
 
-function checkRecipes(ingredientList) {
+function processFood(_process, _ingredientList) {
+	//assume precondition that ingredients list contains the same item?
+	
+	for(var i = 0; i < ds_list_size(_ingredientList); i++) {
+		var foodItem = _ingredientList[| i];
+		//look under the process
+		var processedItem = global.procCheck[# _process.cardId, foodItem.cardId];
+		// make that item
+		var output = CreateCard(foodItem.x,foodItem.y,cardTypes.food,processedItem);
+		DiscardCard(output);
+		
+		//destroy that food if its used up
+		foodItem.uses--;
+		if(foodItem.uses < 1)
+			DestroyCard(foodItem);
+			
+	}
+	
+	//return p
+	DiscardCard(_process)
+}
+
+function combineRecipe(ingredientList) {
 	
 	//for each x in the recipe's
 	

@@ -36,6 +36,15 @@ function DiscardCard(_card) { //obj_Player
 		ds_list_add(discard,_card);
 		ds_list_delete(hand, pos);
 	}
+	
+	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
+		var testStack = instance_find(obj_Slot,i).cardStack;
+		var Spos = ds_list_find_index(hand,_card);
+		if (Spos != -1) {
+			ds_list_add(discard,_card);
+			ds_list_delete(hand, Spos);
+		}
+	}
 }
 
 function CreateCard( _x, _y, _type, _id) { //obj_Player, obj_Shop?
@@ -45,12 +54,16 @@ function CreateCard( _x, _y, _type, _id) { //obj_Player, obj_Shop?
 			newCard = instance_create_layer(_x, _y, "Field", obj_FoodCard);
 			newCard.cardId = _id;
 			newCard.sprite_index = global.foodCardInfo[# _id, 0];
+			newCard.cardTitle = global.foodCardInfo[# _id, 1];
+			newCard.cardDesc = global.foodCardInfo[# _id, 2];
 			break;
 			
 		case cardTypes.process:
 			newCard = instance_create_layer(_x, _y, "Field", obj_ProcCard);
 			newCard.cardId = _id;
 			newCard.sprite_index = global.procCardInfo[# _id, 0];
+			newCard.cardTitle = global.procCardInfo[# _id, 1];
+			newCard.cardDesc = global.procCardInfo[# _id, 2];
 			break;
 		/*	
 		case cardTypes.restaurant:
@@ -62,4 +75,21 @@ function CreateCard( _x, _y, _type, _id) { //obj_Player, obj_Shop?
 	}
 	
 	return newCard;
+}
+
+function DestroyCard(_card) {
+	var pos = ds_list_find_index(hand,_card);
+	if (pos != -1) {
+		ds_list_delete(hand, pos);
+	}
+	
+	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the card
+		var testStack = instance_find(obj_Slot,i).cardStack;
+		var Spos = ds_list_find_index(hand,_card);
+		if (Spos != -1) {
+			ds_list_delete(hand, Spos);
+		}
+	}
+	
+	instance_destroy(_card);
 }

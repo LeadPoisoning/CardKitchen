@@ -79,17 +79,19 @@ function InitProcCheck() { //obj_Player
 	
 	// x values: process
 	// y values: food
+	
 				//list			  //x			  //y			 //result value
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.mato, foodCard.matoChopped);
 	ds_grid_add(global.procCheck, procCard.knife, foodCard.spinch, foodCard.spinchChopped  );
 	
 }
 
-function InitRecipeChec() { //obj_Player
+function InitRecipeCheck() { //obj_Player
 	global.recipeCheck = ds_grid_create(20, 20);
 	
 	// x values: output
-	// y values: ingredients
+	// y values: each ingredient
+	
 				//list			  //x			  //y			 //result value
 	ds_grid_add(global.procCheck, foodCard.salad, 0, foodCard.matoChopped);
 	ds_grid_add(global.procCheck, foodCard.salad, 1, foodCard.spinch);
