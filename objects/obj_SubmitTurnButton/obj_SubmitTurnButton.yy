@@ -36,7 +36,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_ProcessButton",
+  "name": "obj_SubmitTurnButton",
   "tags": [],
   "resourceType": "GMObject",
 }

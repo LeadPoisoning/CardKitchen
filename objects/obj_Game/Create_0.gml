@@ -2,8 +2,8 @@
 
 InitFoodCardInfo();
 InitProcCardInfo();
-InitProcCheck();
-InitRecipeCheck();
+InitProcessGrid();
+InitRecipeGrid();
 
 global.cardW = 96;
 global.cardH = 128;

@@ -24,7 +24,7 @@
     {"id":{"name":"scr_DHDController","path":"scripts/scr_DHDController/scr_DHDController.yy",},"order":0,},
     {"id":{"name":"obj_ProcCard","path":"objects/obj_ProcCard/obj_ProcCard.yy",},"order":1,},
     {"id":{"name":"spr_CardTatoChopped","path":"sprites/spr_CardTatoChopped/spr_CardTatoChopped.yy",},"order":7,},
-    {"id":{"name":"obj_ProcessButton","path":"objects/obj_ProcessButton/obj_ProcessButton.yy",},"order":7,},
+    {"id":{"name":"obj_SubmitTurnButton","path":"objects/obj_SubmitTurnButton/obj_SubmitTurnButton.yy",},"order":7,},
     {"id":{"name":"spr_FXCardHover","path":"sprites/spr_FXCardHover/spr_FXCardHover.yy",},"order":11,},
     {"id":{"name":"spr_TestButton","path":"sprites/spr_TestButton/spr_TestButton.yy",},"order":7,},
     {"id":{"name":"spr_CardSalad","path":"sprites/spr_CardSalad/spr_CardSalad.yy",},"order":3,},

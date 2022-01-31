@@ -28,13 +28,12 @@ if(heldCard == noone) {
 
 	//check if hovering card
 	
-		//check inside hand only
+	//check inside hand only
 	if(position_meeting(x,y,obj_Card)) {
 		// get card hovering on
 		var checkCard = instance_nearest(x,y,obj_Card);
 		//if its not in the hand ignore it
 		if(ds_list_find_index(player.hand,checkCard) != -1)
-		//if(checkCard.faceUp)
 			hoverCard = checkCard;
 		//}
 	}
@@ -76,6 +75,7 @@ if (clicked) {
 	//try to click a card
 	var clickedCardList = ds_list_create();
 	collision_point_list(x, y, obj_Card, false, true, clickedCardList,false);
+	
 	//if click multiple, get the one with the least depth
 	var numClicked = ds_list_size(clickedCardList);
 	if(numClicked == 1)
@@ -88,6 +88,10 @@ if (clicked) {
 			if(test.depth < heldCard.depth)
 				heldCard = test;
 		}
+	}
+	
+	if(ds_list_find_index(player.discard,heldCard) != -1) {
+		heldCard = noone;
 	}
 	
 	//clean up

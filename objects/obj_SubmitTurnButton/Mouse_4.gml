@@ -1,4 +1,4 @@
 if(procCount == procDelay) {
-	runProcessTurn();
+	tryRunTurn();
 	procCount = 0;
 }

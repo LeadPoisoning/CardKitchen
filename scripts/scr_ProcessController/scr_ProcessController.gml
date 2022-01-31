@@ -4,12 +4,13 @@ function acceptCard(inCard) { // obj_Slot
 
 }
 
-function runProcessTurn() { // obj_processButton
+//function that is called by button when clicked
+function tryRunTurn() { // obj_SubmitTurnButton
 	
 	// Make sure ALL slots can process
 	for(var i = 0; i < instance_number(obj_Slot); i++) {
 		var testSlot = instance_find(obj_Slot,i);
-		if( !canProcessSlot(testSlot) ) {
+		if( !canOpSlot(testSlot) ) {
 			
 			//if a single one cannot, then return -1
 			show_debug_message("invalid process");
@@ -21,7 +22,7 @@ function runProcessTurn() { // obj_processButton
 	// Process each slot
 	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the cad
 		var slot = instance_find(obj_Slot,i);
-		processSlot(slot);
+		operateSlot(slot);
 		
 	}
 	
@@ -33,11 +34,16 @@ function runProcessTurn() { // obj_processButton
 
 }
 
-function canProcessSlot(slot) {  // obj_processButton
+//checks a given slot for ability to perform some operation
+function canOpSlot(slot) {  // obj_SubmitTurnButton
 	var stack = slot.cardStack;
-	//TODO
+	//returns 1 if success
+	//returns -1 if is empty
+	//returns -2 if there are 2 process cards
+	//returns -3 if theres a proc card but no valid process
+	//returns -4 if there is no valid recipe
 	
-	//false if there are two process cards
+	// if there are two process cards
 	var procCount = 0;
 	var currentProc = noone;
 	for(var i = 0; i < ds_list_size(stack); i++) {
@@ -52,30 +58,33 @@ function canProcessSlot(slot) {  // obj_processButton
 	}
 	
 	if(currentProc != noone) {
-		//false if any cards cannot be processed by the current process (ie their output == noone)
+		//error if any cards cannot be processed by the current process (ie their output == noone)
 		for(var i = 0; i < ds_list_size(stack); i++) {
-			if( stack[| i].object_index == obj_FoodCard ) {//find the proc card
-				if( global.procCheck[# currentProc.cardId, stack[| i].cardId] == noone ) {
-					show_debug_message("cannot run a food with this process");
+			if( stack[| i].object_index == obj_FoodCard ) {//only run on food cards
+				if( global.processes[# currentProc.cardId, stack[| i].cardId] == noone ) {
+					show_debug_message("cannot process a food in this list");
 					return false;
 				}
 			}
 		}
+
 	}
 		
-	//false if there are none they must all fit a recipe
 	
 	return true;
 	
 }
 
-function processSlot(slot) {  // obj_processButton
+//runs the operation for a slot (resuming it is possible)
+function operateSlot(slot) {  // obj_SubmitTurnButton
+	//precondition: there is a valid process for this slot
+	
+	var stack = slot.cardStack;
+	if(ds_list_size(stack) == 0)
+		return;
 	
 	var unprocList = ds_list_create();
-	var usedList = ds_list_create();
-	
 	var currentProc = noone;
-	var stack = slot.cardStack;
 	
 	// go through the cards
 	for(var i = 0; i < ds_list_size(stack); i++) {
@@ -91,35 +100,36 @@ function processSlot(slot) {  // obj_processButton
 	
 	}
 	
+	//if there are no proc cards try a recipe
 	if (currentProc == noone) {
 		show_debug_message("No proc, checking recipes");
 		
 		//TODO lookup a valid recipe
-		//do it`
+		makeRecipe(unprocList);
+		//do it
 		
 	} else {
 		show_debug_message("Proc is " + string(global.procCardInfo[# currentProc.cardId, 1 ]));
 		
 		processFood(currentProc,unprocList);
-		//TODO: lookup a valid process
 		//do it
 	}
 	
 	ds_list_destroy(unprocList);
-	ds_list_destroy(usedList);
 	
 }
 
-function processFood(_process, _ingredientList, _usedList) { //obj_ProcessButton
+//called by operateSlot when there is a process card present
+function processFood(_process, _ingredientList) { //obj_SubmitTurnButton
 	//assume precondition that every card being processed has an output
-	//assume precondition that ingredients list contains the same item?
+	//?assume precondition that ingredients list contains the same item?
 	
 	DiscardCard(_process)
 	
 	for(var i = 0; i < ds_list_size(_ingredientList); i++) {
 		var foodItem = _ingredientList[| i];
 		//look under the process
-		var processedItem = global.procCheck[# _process.cardId, foodItem.cardId];
+		var processedItem = global.processes[# _process.cardId, foodItem.cardId];
 		// make that item
 		var output = CreateCard(foodItem.x,foodItem.y,cardTypes.food,processedItem);
 		DiscardCard(output);
@@ -130,13 +140,90 @@ function processFood(_process, _ingredientList, _usedList) { //obj_ProcessButton
 			DestroyCard(foodItem);
 			
 	}
-	//HOW TO DO USED LIST :?
+	//does used list mater in this case?
 }
 
-function assembleRecipe(ingredientList) { //obj_ProcessButton
+//called by operateSlot when there are no process cards
+function makeRecipe(_ingredientList) {
+	//precondition: there is exactly one valid recipe for this list
 	
-	//for each 
-	//for each x in the recipe's
+	var foodItem = _ingredientList[| 0];
+	//figure out what we're making
+	var recipeItem = findRecipe(_ingredientList);
+	//create and discard an output object
+	var output = CreateCard(foodItem.x,foodItem.y,cardTypes.food,recipeItem);
+	DiscardCard(output);
+	//for each ingredient reduce uses
+	for(var i = 0; i < ds_list_size(_ingredientList); i++) {
+		var usedIng = _ingredientList[| i];
+		usedIng.uses--;
+		if(usedIng.uses < 1)
+			DestroyCard(usedIng);
+	}
 	
+}
+
+//called by makeRecipe, to retrieve the correct cardId of the intended output card
+function findRecipe(_ingredientList) { //obj_SubmitTurnButton
+	//precondition: there is exactly one valid recipe for this list
+	//returns a foodId;
+	
+	//create a temporary holding list of the ingredients
+	var tempIngredientsList = ds_list_create();
+	
+	//check each recipe (column) in the recipe grid for a match with current ingredients
+	for(var ix = 0; ix < ds_grid_width(global.recipes); ix++) {
+		//reset the ingredients list back to the input
+		ds_list_copy(tempIngredientsList,_ingredientList);
+		
+		//check each item in the recipe to make sure it exists the correct number of times
+		for(var iy = 0; iy < ds_grid_height(global.recipes); iy++) {
+			
+			//if we hit the end of the recipe, check if we've suceeded or not
+			if(global.recipes[# ix,iy] == noone) {
+				var allIngUsed = true; //check that the ingredients list is all used up
+				for(var ii = 0; ii < ds_list_size(tempIngredientsList); ii++) {
+					if(tempIngredientsList[| ii] != noone) {
+						allIngUsed = false;
+						break;
+					}
+				}
+				if(allIngUsed) {
+					//we have succeeded
+					// output is now the current column
+					//clean up and return
+					ds_list_destroy(tempIngredientsList);
+					return ix;
+				} else {
+					//we have ingredients left over
+					//for now (may change) this is considered a failure, and we must continue checking recipes
+					break;
+				}
+			}
+			
+			//check if the current ingredient (from the recipe) exists somewhere in "tempIngredientsList" (index != -1)
+			var ingIndex = -1;
+			for(var ii = 0; ii < ds_list_size(tempIngredientsList); ii++) {
+				if( tempIngredientsList[| ii] != noone)
+					if( tempIngredientsList[| ii].cardId == global.recipes[# ix,iy]) {
+						ingIndex = ii;
+						break;
+					}
+			}
+			if(ingIndex != -1) {
+				//set that position of tempIngredientsList to "noone"
+				tempIngredientsList[| ingIndex] = noone;
+			} else {
+				//this recipe is wrong, continue checking
+				break;
+			}
+			
+		}
+	}
+	
+	//if we got here without finding a recipe thats bad
+	show_debug_message("no recipe found");
+	ds_list_destroy(tempIngredientsList);
+	return -1;
 	//return
 }
