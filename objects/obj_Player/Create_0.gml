@@ -10,6 +10,7 @@ discardX = deckX;
 discardY = deckY - global.cardH*3/2;
 handStartX = 380;
 handStartY = 640;
+drawDelay = 8;
 
 for (var i = 0; i < ds_list_size(global.baseDeck); i++) {
 	var card = global.baseDeck[| i];
@@ -21,4 +22,10 @@ for (var i = 0; i < ds_list_size(global.baseDeck); i++) {
 	ds_list_add(deck, card);
 }
 
+ds_list_shuffle(deck);
+
+global.control = false;
 global.dayTurnCount = 0;
+
+drawAlarmCount = 5;
+alarm[1] = drawDelay;

@@ -1,8 +1,13 @@
 #region ------------ INPUTS ------------
+var clicked = 0;
+var right_clicked = 0;
+var released = 0;
 
-var clicked = mouse_check_button_pressed(mb_left);
-var right_clicked = mouse_check_button_pressed(mb_right);
-var released = mouse_check_button_released(mb_left);
+if(global.control) {
+	clicked = mouse_check_button_pressed(mb_left);
+	right_clicked = mouse_check_button_pressed(mb_right);
+	released = mouse_check_button_released(mb_left);
+}
 
 x = mouse_x;
 y = mouse_y;
@@ -70,6 +75,7 @@ if(heldCard == noone) {
 #endregion
 
 #region ------------ LEFT CLICK ------------
+
 if (clicked) {
 	
 	//try to click a card
@@ -118,11 +124,18 @@ if (clicked) {
 }
 #endregion
 
-//if (right_clicked) { //flip face up
-//	var target = collision_point(x, y, obj_Card , false, true);
-//	if(target != noone)
+//Right click card to sell it
+if (right_clicked) { //flip face up
+	var target = collision_point(x, y, obj_Card , false, true);
+	if(target != noone && target.faceUp) {
+		global.money += target.value;
+		DestroyCard(target);
+		with(player) {
+			DrawCards(1);
+		}
+	}
 //		target.faceUp = !target.faceUp;
-//}
+}
 
 #region ------------ RELEASE LEFT ------------
 

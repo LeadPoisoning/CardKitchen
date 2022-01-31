@@ -31,7 +31,7 @@ function DrawCards(_numCards) { // obj_Player
 	}
 }
 
-function CreateCard( _x, _y, _type, _id) { // obj_Player, obj_Game, obj_CardChoice
+function CreateCard( _x, _y, _type, _id) { //agnostic, obj_Player, obj_Game, obj_CardChoice
 	var newCard = noone;
 	switch (_type) {
 		case cardTypes.food:
@@ -40,6 +40,7 @@ function CreateCard( _x, _y, _type, _id) { // obj_Player, obj_Game, obj_CardChoi
 			newCard.sprite_index = global.foodCardInfo[# _id, 0];
 			newCard.cardTitle = global.foodCardInfo[# _id, 1];
 			newCard.cardDesc = global.foodCardInfo[# _id, 2];
+			newCard.value = global.foodCardInfo[# _id, 3];
 			break;
 			
 		case cardTypes.process:

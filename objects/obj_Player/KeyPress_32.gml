@@ -1,1 +1,2 @@
-DrawCards(1);
+if(global.dev && global.control)
+	DrawCards(1);

@@ -1,4 +1,5 @@
-if(procCount == procDelay) {
+if(ready) {
 	tryRunTurn();
-	procCount = 0;
+	ready = false;
+	alarm[0] = delay;
 }

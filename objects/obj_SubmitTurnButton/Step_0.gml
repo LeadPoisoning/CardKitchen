@@ -1,6 +1,6 @@
-if(procCount >= procDelay) {
+if(ready) {
 	image_index = 0;
 } else {
-	procCount++;
+	global.control = false;
 	image_index = 1;
 }

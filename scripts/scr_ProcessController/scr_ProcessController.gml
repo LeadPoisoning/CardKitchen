@@ -7,6 +7,8 @@ function acceptCard(inCard) { // obj_Slot
 //function that is called by button when clicked
 function tryRunTurn() { // obj_SubmitTurnButton
 	
+	var cardReplaceTotal = 0;
+	
 	// Make sure ALL slots can process
 	for(var i = 0; i < instance_number(obj_Slot); i++) {
 		var testSlot = instance_find(obj_Slot,i);
@@ -20,10 +22,16 @@ function tryRunTurn() { // obj_SubmitTurnButton
 	}
 	
 	// Process each slot
-	for(var i = 0; i < instance_number(obj_Slot); i++) { //iterate through the slots to find the one containing the cad
+	for(var i = 0; i < instance_number(obj_Slot); i++) {
 		var slot = instance_find(obj_Slot,i);
 		operateSlot(slot);
-		
+		cardReplaceTotal += slot.cardReplace;
+		slot.cardReplace = 0;
+	}
+	
+	var _player = obj_Player;
+	with(_player){
+		DrawCards(cardReplaceTotal);
 	}
 	
 	// Increment turn
@@ -82,6 +90,8 @@ function operateSlot(slot) {  // obj_SubmitTurnButton
 	var stack = slot.cardStack;
 	if(ds_list_size(stack) == 0)
 		return;
+		
+	slot.cardReplace = ds_list_size(stack);
 	
 	var unprocList = ds_list_create();
 	var currentProc = noone;
