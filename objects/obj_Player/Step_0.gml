@@ -9,8 +9,12 @@ if (handSize <= 1) {
 } else {
 
 	if (handSize <= 5) { // smaller than 6 hands are shrunk by units of 80
-		handStartX = 770-(handSize*80);
+		handStartX = (room_width * 0.5)-(handSize*global.cardW*0.5);
+	} else {
+		handStartX = (room_width * 0.3);
 	}
+	
+	
 	dBetweenCards = (room_width-(2*handStartX))/(handSize - 1);
 
 }

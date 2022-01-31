@@ -5,6 +5,7 @@
     {"id":{"name":"spr_TestSlot","path":"sprites/spr_TestSlot/spr_TestSlot.yy",},"order":3,},
     {"id":{"name":"scr_ProcessController","path":"scripts/scr_ProcessController/scr_ProcessController.yy",},"order":1,},
     {"id":{"name":"fnt_Reg","path":"fonts/fnt_Reg/fnt_Reg.yy",},"order":0,},
+    {"id":{"name":"scr_util","path":"scripts/scr_util/scr_util.yy",},"order":3,},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},"order":1,},
     {"id":{"name":"obj_TestShop","path":"objects/obj_TestShop/obj_TestShop.yy",},"order":10,},
     {"id":{"name":"spr_CardTato","path":"sprites/spr_CardTato/spr_CardTato.yy",},"order":8,},

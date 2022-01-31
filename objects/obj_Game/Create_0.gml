@@ -5,8 +5,8 @@ InitProcCardInfo();
 InitProcessGrid();
 InitRecipeGrid();
 
-global.cardW = 96;
-global.cardH = 128;
+global.cardW = 2* 96;
+global.cardH = 2* 128;
 
 global.baseDeck = ds_list_create();
 
