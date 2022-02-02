@@ -134,7 +134,7 @@ function InitProcCardInfo() { // obj_Game
 	
 	ds_grid_set(global.procCardInfo,procCard.skillet, 0, spr_ProcSkillet);
 	ds_grid_set(global.procCardInfo,procCard.skillet, 1, "Skillet");
-	ds_grid_set(global.procCardInfo,procCard.skillet, 2, "Sizzling hot pan for raosting, searing, or frying");
+	ds_grid_set(global.procCardInfo,procCard.skillet, 2, "Sizzling hot pan for roasting, searing, or frying");
 	
 	ds_grid_set(global.procCardInfo,procCard.pot, 0, spr_ProcPot);
 	ds_grid_set(global.procCardInfo,procCard.pot, 1, "Pot");
