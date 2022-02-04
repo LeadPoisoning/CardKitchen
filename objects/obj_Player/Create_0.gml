@@ -1,5 +1,7 @@
 mouse = instance_create_layer(mouse_x, mouse_y, "FG", obj_Mouse);
 
+// ---------- SET UP TODAYS DECK ----------
+
 deck = ds_list_create();
 hand = ds_list_create();
 discard = ds_list_create();
@@ -21,6 +23,12 @@ for (var i = 0; i < ds_list_size(global.baseDeck); i++) {
 	card.visible = true;
 	ds_list_add(deck, card);
 }
+
+// ---------- SET UP TODAYS CUSTOMERS ----------
+
+customers = ds_list_create();
+
+// ---------- START DAY ----------
 
 ds_list_shuffle(deck);
 

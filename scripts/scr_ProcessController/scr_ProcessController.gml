@@ -35,7 +35,8 @@ function tryRunTurn() { // obj_SubmitTurnButton
 	}
 	
 	// Increment turn
-	global.dayTurnCount++;
+	//global.dayTurnCount++;
+	advanceDay();
 	show_debug_message("Processing... Turn is now: " + string(global.dayTurnCount));
 	
 	// TODO: turn increment stuff

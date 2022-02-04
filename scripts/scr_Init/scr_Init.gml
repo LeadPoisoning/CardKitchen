@@ -15,6 +15,7 @@ enum foodCard {
 	tato,
 	tatoChopped,
 	tatoMashed,
+	tatoFries,
 	
 	salad,
 	
@@ -68,7 +69,7 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 0, spr_CardMatoSoup);
 	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 1, "Mato Soup");
 	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 2, "Rich and tangy soup made from matos");
-	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 3, 10);
+	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 3, 20);
 	
 	
 	
@@ -85,14 +86,19 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.tatoMashed, 0, spr_CardTatoMashed);
 	ds_grid_set(global.foodCardInfo, foodCard.tatoMashed, 1, "Mashed Tatos");
 	ds_grid_set(global.foodCardInfo, foodCard.tatoMashed, 2, "Hearty mash of tatos and butter");
-	ds_grid_set(global.foodCardInfo, foodCard.tatoMashed, 3, 10);
+	ds_grid_set(global.foodCardInfo, foodCard.tatoMashed, 3, 20);
+	
+	ds_grid_set(global.foodCardInfo, foodCard.tatoFries, 0, spr_CardTatoFries);
+	ds_grid_set(global.foodCardInfo, foodCard.tatoFries, 1, "Fried Tatos");
+	ds_grid_set(global.foodCardInfo, foodCard.tatoFries, 2, "Crispy thin-cut tatos with oil");
+	ds_grid_set(global.foodCardInfo, foodCard.tatoFries, 3, 30);
 	
 	
 	
 	ds_grid_set(global.foodCardInfo, foodCard.salad, 0, spr_CardSalad);
 	ds_grid_set(global.foodCardInfo, foodCard.salad, 1, "Salad");
 	ds_grid_set(global.foodCardInfo, foodCard.salad, 2, "A spinch and tomato salad");
-	ds_grid_set(global.foodCardInfo, foodCard.salad, 3, 15);
+	ds_grid_set(global.foodCardInfo, foodCard.salad, 3, 30);
 	
 	
 	
@@ -109,12 +115,12 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 0, spr_CardSnowTucky);
 	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 1, "Snowtucky Fried Bird");
 	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 2, "Fried bird with 11 herbs and spices");
-	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 3, 20);
+	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 3, 40);
 	
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 0, spr_CardSnowbirdNuggets);
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 1, "Snowbird Nuggets");
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 2, "A spinch and tomato salad");
-	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 3, 20);
+	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 3, 40);
 	
 }
 
@@ -156,7 +162,7 @@ function InitProcessGrid() { // obj_Game
 	ds_grid_set(global.processes, procCard.knife, foodCard.snowbird, foodCard.snowbirdTenders);
 	
 	//ds_grid_set(global.processes, procCard.skillet, foodCard.mato, foodCard.matoRoasted);
-	//ds_grid_set(global.processes, procCard.skillet, foodCard.tato, foodCard.tatoFries);
+	ds_grid_set(global.processes, procCard.skillet, foodCard.tato, foodCard.tatoFries);
 	ds_grid_set(global.processes, procCard.skillet, foodCard.snowbird, foodCard.snowTucky);
 	ds_grid_set(global.processes, procCard.skillet, foodCard.snowbirdTenders, foodCard.snowbirdNuggets);
 	

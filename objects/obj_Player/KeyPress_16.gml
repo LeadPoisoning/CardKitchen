@@ -1,5 +1,6 @@
 if(global.control) {
-	global.dayTurnCount++;
+	//global.dayTurnCount++;
+	advanceDay();
 	
 	drawAlarmCount = ds_list_size(hand);
 	repeat(drawAlarmCount) {
