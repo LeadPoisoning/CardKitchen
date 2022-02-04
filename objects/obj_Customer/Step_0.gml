@@ -16,3 +16,7 @@ if(x > room_width) {
 		ds_list_delete(player.customers,pos);
 	instance_destroy();
 }
+
+//var angry = (patience = 1) ? 80 : 0;
+if(patience == 1) bounceSpd = 40;
+bounce = 2*sin(current_time/(bounceSpd) -bounceOff);

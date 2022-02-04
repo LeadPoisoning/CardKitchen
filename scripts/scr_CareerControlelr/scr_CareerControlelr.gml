@@ -5,11 +5,9 @@ function createCustomer() {
 	
 	var foodOptions = [
 		foodCard.salad,
-		
 		foodCard.snowbirdNuggets,
 		foodCard.snowbirdSoup,
 		foodCard.snowTucky,
-		
 		foodCard.matoSoup,
 		foodCard.tatoMashed,
 		foodCard.tatoFries

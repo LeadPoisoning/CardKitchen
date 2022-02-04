@@ -5,25 +5,26 @@ enum cardTypes {
 }
 
 enum foodCard {
-	spinch,
+	spinch, // 0
 	spinchChopped,
 	
 	mato,
 	matoChopped,
 	matoSoup,
 	
-	tato,
+	tato, // 5
 	tatoChopped,
 	tatoMashed,
 	tatoFries,
 	
 	salad,
 	
-	snowbird,
+	snowbird, //10
 	snowbirdTenders,
 	snowTucky,
 	snowbirdNuggets,
 	snowbirdSoup
+		//15
 }
 
 enum procCard {
@@ -115,12 +116,17 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 0, spr_CardSnowTucky);
 	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 1, "Snowtucky Fried Bird");
 	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 2, "Fried bird with 11 herbs and spices");
-	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 3, 40);
+	ds_grid_set(global.foodCardInfo, foodCard.snowTucky, 3, 35);
 	
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 0, spr_CardSnowbirdNuggets);
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 1, "Snowbird Nuggets");
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 2, "A spinch and tomato salad");
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdNuggets, 3, 40);
+	
+	ds_grid_set(global.foodCardInfo, foodCard.snowbirdSoup, 0, spr_CardSnowbirdSoup);
+	ds_grid_set(global.foodCardInfo, foodCard.snowbirdSoup, 1, "Snowbird Soup");
+	ds_grid_set(global.foodCardInfo, foodCard.snowbirdSoup, 2, "Warm and soothing soup made with snowbird broth");
+	ds_grid_set(global.foodCardInfo, foodCard.snowbirdSoup, 3, 40);
 	
 }
 

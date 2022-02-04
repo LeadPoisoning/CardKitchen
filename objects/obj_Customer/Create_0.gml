@@ -6,8 +6,8 @@ body = irandom(3);
 head = irandom(3);
 hat = -1;
 
-if (random(1) > 0.5)
-	hat = irandom(3);
+if (random(1) > 0.4)
+	hat = irandom(4);
 
 
 //mood = 0;
@@ -22,3 +22,7 @@ if (random(1) > 0.5)
 	
 xTo = 0;
 yTo = 0;
+
+bounce = 1;
+bounceOff = random(100);
+bounceSpd = random_range(100,220);

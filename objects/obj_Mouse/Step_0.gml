@@ -127,7 +127,7 @@ if (clicked) {
 //Right click card to sell it
 if (right_clicked) { //flip face up
 	var target = collision_point(x, y, obj_Card , false, true);
-	if(target != noone && target.faceUp) {
+	if(target != noone && target.faceUp && target.object_index == obj_FoodCard) {
 		global.money += target.value;
 		DestroyCard(target);
 		with(player) {
