@@ -1,3 +1,4 @@
+#region Declare Enums
 enum cardTypes {
 	food,
 	process,
@@ -6,30 +7,81 @@ enum cardTypes {
 
 enum foodCard {
 	spinch,
-	spinchChopped,
-	
-	mato,
-	matoChopped,
-	matoSoup,
-	
+	chopped_spinch,
+	spinch_soup,
 	tato,
-	tatoChopped,
-	tatoMashed,
-	
-	salad,
-	
+	chopped_tato,
+	boiled_tato,
+	roasted_tato,
+	baked_tato,
+	tato_soup,
+	tato_wedges,
+	mato,
+	chopped_mato,
+	roasted_mato,
+	mato_soup,
+	spunion,
+	caramelized_spunion,
+	spunion_soup,
+	cattle_steak,
+	ground_cattle,
+	cattle_patty,
+	cooked_patty,
+	cooked_steak,
+	bun,
+	foccelli_noodles,
+	cooked_foccelli_noodles,
+	snowbird_egg,
 	snowbird,
-	snowbirdTenders,
-	snowTucky,
-	snowbirdNuggets,
-	snowbirdSoup
+	snowbird_tenders,
+	snowtucky_fried_bird,
+	roast_snowbird,
+	snowbird_nuggets,
+	snowbird_soup,
+	rudefish,
+	teaweed,
+	chopped_teaweed,
+	light_tea,
+	dark_tea,
+	teaweed_crisps,
+	rice,
+	steamed_rice,
+	fried_rice,
+	count
 }
 
 enum procCard {
 	knife,
 	skillet,
 	pot,
-	oven
+	oven,
+	count
+}
+#endregion
+
+function InitFoodInfo() { // obj_Game
+	var foodInfoGrid = ds_grid_create(40, 200);
+	foodInfoGrid = load_csv("FoodInfoGrid.csv");
+	
+	var infoNum = 4; // number of pieces of information for an individual food card (pls rename)
+	
+	global.foodCardInfo = ds_grid_create(infoNum, foodCard.count);
+	global.foodProcessing = ds_grid_create(procCard.count, foodCard.count);
+	
+	// grab subgrid for card info values and create map for food processing
+	var foodEnumMap = ds_map_create();
+	var infoOffX = 10;
+	var infoOffY = 1;
+	for (var y = 0; y < foodCard.count; y++) {
+		ds_map_add(foodEnumMap, foodInfoGrid[# 0, infoOffY + y], y);
+		
+		// creates card info grid
+		for (var x = 0; x < infoNum; x++) {
+			if (foodInfoGrid[# x, 0] != "") {
+				global.foodCardInfo[# x, y] = foodInfoGrid[# infoOffX + x, infoOffY + y];
+			}
+		}
+	}
 }
 
 function InitFoodCardInfo() { // obj_Game
