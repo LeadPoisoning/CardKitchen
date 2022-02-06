@@ -1,8 +1,7 @@
 //set room width and camera and gui stuff;
 
-InitFoodCardInfo();
+InitFoodInfo();
 InitProcCardInfo();
-InitProcessGrid();
 InitRecipeGrid();
 
 global.cardW = 96;

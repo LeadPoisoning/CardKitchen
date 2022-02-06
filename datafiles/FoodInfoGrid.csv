@@ -1,42 +1,43 @@
-,knife,skillet,pot,oven,,,,,sprite_index,numUses,quality
-spinch,chopped_spinch,,spinch_soup,,,,,,spr_CardSpinch,1,0
-chopped_spinch,,,,,,,,,spr_CardSpinchChopped,1,0
-spinch_soup,,,,,,,,,spr_CardSpinchSoup,1,0
-tato,chopped_tato,roasted_tato,boiled_tato,baked_tato,,,,,spr_CardTato,1,0
-chopped_tato,,tato_wedges,tato_soup,tato_wedges,,,,,spr_CardTatoChopped,1,0
-boiled_tato,,tato_wedges,,,,,,,spr_CardTatoBoiled,1,0
-roasted_tato,,,,,,,,,spr_CardTatoRoasted,1,0
-baked_tato,,,,,,,,,spr_CardTatoBaked,1,0
-tato_soup,,,,,,,,,spr_CardTatoSoup,1,0
-tato_wedges,,,,,,,,,spr_CardTatoWedges,1,0
-mato,chopped_mato,roasted_mato,,dried mato,,,,,spr_CardMato,1,0
-chopped_mato,,roasted_mato,mato_soup,dried mato,,,,,spr_CardMatoChopped,1,0
-roasted_mato,,,,,,,,,spr_CardMatoRoasted,1,0
-mato_soup,,,,,,,,,spr_CardMatoSoup,1,0
-spunion,chopped_spunion,caramelized_spunion,spunion_soup,,,,,,spr_CardSpunion,1,0
-caramelized_spunion,,,,,,,,,spr_CardSpunionCaramelized,1,0
-spunion_soup,,,,,,,,,spr_CardSpunionSoup,1,0
-cattle_steak,cattle_patty,cooked_steak,,cooked_steak,,,,,spr_CardCattle,1,0
-ground_cattle,,,,,,,,,spr_CardCattleGround,1,0
-cattle_patty,ground_cattle,cooked_patty,,,,,,,spr_CardCattlePatty,1,0
-cooked_patty,,,,,,,,,spr_CardCattlePattyCooked,1,0
-cooked_steak,,,,,,,,,spr_CardCattleSteakCooked,1,0
-bun,,,,,,,,,spr_CardBun,1,0
-foccelli_noodles,,,foccelli_noodles,,,,,,spr_CardFoccelli,1,0
-cooked_foccelli_noodles,,,,,,,,,spr_CardFoccelliCooked,1,0
-snowbird_egg,,fried_egg,boiled_egg,,,,,,spr_CardSnowbirdEgg,1,0
-snowbird,snowbird_tenders,snowtucky_fried_bird,,roast_snowbird,,,,,spr_CardSnowbird,1,0
-snowbird_tenders,,snowbird_nuggets,snowbird_soup,snowbird_tenders,,,,,spr_CardSnowbirdTenders,1,0
-snowtucky_fried_bird,,,,,,,,,spr_CardSnowtuckyFriedBird,1,0
-roast_snowbird,,,,,,,,,spr_CardSnowbirdRoast,1,0
-snowbird_nuggets,,,,,,,,,spr_CardSnowbirdNuggets,1,0
-snowbird_soup,,,,,,,,,spr_CardSnowbirdSoup,1,0
-rudefish,,,,,,,,,spr_CardRudefish,1,0
-teaweed,chopped_teaweed,teaweed_crisps,light_tea,teaweed_crisps,,,,,spr_CardTeaweed,1,0
-chopped_teaweed,,,dark_tea,,,,,,spr_CardTeaweedChopped,1,0
-light_tea,,,,,,,,,spr_CardTeaLight,1,0
-dark_tea,,,,,,,,,spr_CardTeaDark,1,0
-teaweed_crisps,,,,,,,,,spr_CardTeaweedCrisps,1,0
-rice,,fried_rice,rice,,,,,,spr_CardRice,1,0
-steamed_rice,,,,,,,,,spr_CardSteamedRice,1,0
-fried_rice,,,,,,,,,spr_CardFriedRice,1,0
+,knife,skillet,pot,oven,,,,,ID,sprite_index,Title,Description,numUses,quality,value
+spinch,chopped_spinch,,spinch_soup,,,,,,0,spr_CardSpinch,Spinch,default,1,0,5
+chopped_spinch,,,,,,,,,1,spr_CardSpinchChopped,Chopped Spinch,default,1,0,5
+spinch_soup,,,,,,,,,2,spr_CardSpinchSoup,Spinch Soup,default,1,0,5
+tato,chopped_tato,roasted_tato,boiled_tato,baked_tato,,,,,3,spr_CardTato,Tato,default,1,0,5
+chopped_tato,,tato_wedges,tato_soup,tato_wedges,,,,,4,spr_CardTatoChopped,Chopped Tato,default,1,0,5
+boiled_tato,,tato_wedges,,,,,,,5,spr_CardTatoBoiled,Boiled Tato,default,1,0,5
+roasted_tato,,,,,,,,,6,spr_CardTatoRoasted,Roasted Tato,default,1,0,5
+baked_tato,,,,,,,,,7,spr_CardTatoBaked,Baked Tato,default,1,0,5
+tato_soup,,,,,,,,,8,spr_CardTatoSoup,Tato Soup,default,1,0,5
+tato_wedges,,,,,,,,,9,spr_CardTatoWedges,Tato Wedges,default,1,0,5
+mato,chopped_mato,roasted_mato,,dried mato,,,,,10,spr_CardMato,Mato,default,1,0,5
+chopped_mato,,roasted_mato,mato_soup,dried mato,,,,,11,spr_CardMatoChopped,Chopped Mato,default,1,0,5
+roasted_mato,,,,,,,,,12,spr_CardMatoRoasted,Roasted Mato,default,1,0,5
+mato_soup,,,,,,,,,13,spr_CardMatoSoup,Mato Soup,default,1,0,5
+spunion,chopped_spunion,caramelized_spunion,spunion_soup,,,,,,14,spr_CardSpunion,Spunion,default,1,0,5
+caramelized_spunion,,,,,,,,,15,spr_CardSpunionCaramelized,Caramelized Spunion,default,1,0,5
+spunion_soup,,,,,,,,,16,spr_CardSpunionSoup,Spunion Soup,default,1,0,5
+cattle_steak,cattle_patty,cooked_steak,,cooked_steak,,,,,17,spr_CardCattle,Cattle Steak,default,1,0,5
+ground_cattle,,,,,,,,,18,spr_CardCattleGround,Ground Cattle,default,1,0,5
+cattle_patty,ground_cattle,cooked_patty,,,,,,,19,spr_CardCattlePatty,Cattle Patty,default,1,0,5
+cooked_patty,,,,,,,,,20,spr_CardCattlePattyCooked,Cooked Patty,default,1,0,5
+cooked_steak,,,,,,,,,21,spr_CardCattleSteakCooked,Cooked Steak,default,1,0,5
+bun,,,,,,,,,22,spr_CardBun,Bun,default,1,0,5
+foccelli_noodles,,,foccelli_noodles,,,,,,23,spr_CardFoccelli,Focelli Noodles,default,1,0,5
+cooked_foccelli_noodles,,,,,,,,,24,spr_CardFoccelliCooked,Cooked Focelli Noodles,default,1,0,5
+snowbird_egg,,fried_egg,boiled_egg,,,,,,25,spr_CardSnowbirdEgg,Snowbird Egg,default,1,0,5
+snowbird,snowbird_tenders,snowtucky_fried_bird,,roast_snowbird,,,,,26,spr_CardSnowbird,Snowbird,default,1,0,5
+snowbird_tenders,,snowbird_nuggets,snowbird_soup,snowbird_tenders,,,,,27,spr_CardSnowbirdTenders,Snowbird Tenders,default,1,0,5
+snowtucky_fried_bird,,,,,,,,,28,spr_CardSnowtuckyFriedBird,Snowtucky Fried Chicken,default,1,0,5
+roast_snowbird,,,,,,,,,29,spr_CardSnowbirdRoast,Roast Snowbird,default,1,0,5
+snowbird_nuggets,,,,,,,,,30,spr_CardSnowbirdNuggets,Snowbird Nuggets,default,1,0,5
+snowbird_soup,,,,,,,,,31,spr_CardSnowbirdSoup,Snowbird Soup,default,1,0,5
+rudefish,,,,,,,,,32,spr_CardRudefish,Rudefish,default,1,0,5
+teaweed,chopped_teaweed,teaweed_crisps,light_tea,teaweed_crisps,,,,,33,spr_CardTeaweed,Teaweed,default,1,0,5
+chopped_teaweed,,,dark_tea,,,,,,34,spr_CardTeaweedChopped,Chopped Teaweed,default,1,0,5
+light_tea,,,,,,,,,35,spr_CardTeaLight,Light Tea,default,1,0,5
+dark_tea,,,,,,,,,36,spr_CardTeaDark,Dark Tea,default,1,0,5
+teaweed_crisps,,,,,,,,,37,spr_CardTeaweedCrisps,Teaweed Crisps,default,1,0,5
+rice,,fried_rice,rice,,,,,,38,spr_CardRice,Rice,default,1,0,5
+steamed_rice,,,,,,,,,39,spr_CardSteamedRice,Steamed Rice,default,1,0,5
+fried_rice,,,,,,,,,40,spr_CardFriedRice,Fried Rice,default,1,0,5
+salad,,,,,,,,,41,spr_CardSalad,Salad,default,1,0,5

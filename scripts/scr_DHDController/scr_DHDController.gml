@@ -37,10 +37,12 @@ function CreateCard( _x, _y, _type, _id) { //agnostic, obj_Player, obj_Game, obj
 		case cardTypes.food:
 			newCard = instance_create_layer(_x, _y, "Field", obj_FoodCard);
 			newCard.cardId = _id;
-			newCard.sprite_index = global.foodCardInfo[# _id, 0];
-			newCard.cardTitle = global.foodCardInfo[# _id, 1];
-			newCard.cardDesc = global.foodCardInfo[# _id, 2];
-			newCard.value = global.foodCardInfo[# _id, 3];
+			newCard.sprite_index = global.foodCardInfo[# 1, _id];
+			newCard.cardTitle = global.foodCardInfo[# 2, _id];
+			newCard.cardDesc = global.foodCardInfo[# 3, _id];
+			newCard.numUses = global.foodCardInfo[# 4, _id];
+			newCard.quality = global.foodCardInfo[# 5, _id];
+			newCard.value = global.foodCardInfo[# 6, _id];
 			break;
 			
 		case cardTypes.process:
