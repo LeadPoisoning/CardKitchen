@@ -1,3 +1,4 @@
+#region Declare Enums
 enum cardTypes {
 	food,
 	process,
@@ -5,35 +6,107 @@ enum cardTypes {
 }
 
 enum foodCard {
-	spinch, // 0
-	spinchChopped,
-	
+	spinch,
+	chopped_spinch,
+	spinch_soup,
+	tato,
+	chopped_tato,
+	boiled_tato,
+	roasted_tato,
+	baked_tato,
+	tato_soup,
+	tato_wedges,
 	mato,
-	matoChopped,
-	matoSoup,
-	
-	tato, // 5
-	tatoChopped,
-	tatoMashed,
-	tatoFries,
-	
+	chopped_mato,
+	roasted_mato,
+	mato_soup,
+	spunion,
+	caramelized_spunion,
+	spunion_soup,
+	cattle_steak,
+	ground_cattle,
+	cattle_patty,
+	cooked_patty,
+	cooked_steak,
+	bun,
+	foccelli_noodles,
+	cooked_foccelli_noodles,
+	snowbird_egg,
+	snowbird,
+	snowbird_tenders,
+	snowtucky_fried_bird,
+	roast_snowbird,
+	snowbird_nuggets,
+	snowbird_soup,
+	rudefish,
+	teaweed,
+	chopped_teaweed,
+	light_tea,
+	dark_tea,
+	teaweed_crisps,
+	rice,
+	steamed_rice,
+	fried_rice,
+	// start complex foods
 	salad,
-	
-	snowbird, //10
-	snowbirdTenders,
-	snowTucky,
-	snowbirdNuggets,
-	snowbirdSoup
-		//15
+	count
 }
 
 enum procCard {
 	knife,
 	skillet,
 	pot,
-	oven
+	oven,
+	count
+}
+#endregion
+
+function InitFoodInfo() { // obj_Game
+	var foodInfoGrid = ds_grid_create(40, 200);
+	foodInfoGrid = load_csv("FoodInfoGrid.csv");
+	
+	var infoNum = 7; // number of pieces of information for an individual food card (pls rename)
+	
+	global.foodCardInfo = ds_grid_create(infoNum, foodCard.count);
+	global.processes = ds_grid_create(procCard.count, foodCard.count);
+	
+	// grab subgrid for card info values and create map for food processing
+	var foodEnumMap = ds_map_create();
+	var infoOffX = 9;
+	var infoOffY = 1;
+	for (var j = 0; j < foodCard.count; j++) {
+		ds_map_add(foodEnumMap, foodInfoGrid[# 0, infoOffY + j], j);
+		
+		// copy info grid value
+		for (var i = 0; i < infoNum; i++) {
+			var infoType = foodInfoGrid[# i + infoOffX, 0];
+			
+			if (infoType == "sprite_index") {
+				var sprInd = asset_get_index(foodInfoGrid[# infoOffX + i, infoOffY + j]);
+				if (sprInd > -1) {
+					global.foodCardInfo[# i, j] = sprInd;
+				} else { // no sprite exists
+					global.foodCardInfo[# i, j] = spr_CardDefault;
+				}
+			} else if (infoType != "") {
+				global.foodCardInfo[# i, j] = foodInfoGrid[# infoOffX + i, infoOffY + j];
+			}
+		}
+	}
+	
+	for (var j = 0; j < foodCard.count; j++) {
+		if (foodInfoGrid[# 0, j + 1] == "") break; // no more food cards in csv
+		
+		for (var i = 0; i < procCard.count; i++) {
+			if (foodInfoGrid[# i + 1, 0] == "") break; // no more proc cards in csv
+			
+			global.processes[# i, j] = foodEnumMap[? foodInfoGrid[# i + 1, j + 1]];
+		}
+	}
 }
 
+#region Wasteland
+/*
 function InitFoodCardInfo() { // obj_Game
 	global.foodCardInfo = ds_grid_create(20, 20);
 	
@@ -50,10 +123,10 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.spinch, 2, "Green leafy vegatable");
 	ds_grid_set(global.foodCardInfo, foodCard.spinch, 3, 3);
 	
-	ds_grid_set(global.foodCardInfo, foodCard.spinchChopped, 0, spr_CardSpinchChopped);
-	ds_grid_set(global.foodCardInfo, foodCard.spinchChopped, 1, "Copped Spinch");
-	ds_grid_set(global.foodCardInfo, foodCard.spinchChopped, 2, "Chopped, green leafy vegatable");
-	ds_grid_set(global.foodCardInfo, foodCard.spinchChopped, 3, 3);
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_spinch, 0, spr_CardSpinchChopped);
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_spinch, 1, "Copped Spinch");
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_spinch, 2, "Chopped, green leafy vegatable");
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_spinch, 3, 3);
 	
 	
 	
@@ -62,10 +135,10 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.mato, 2, "Red zesty vegatable");
 	ds_grid_set(global.foodCardInfo, foodCard.mato, 3, 5);
 	
-	ds_grid_set(global.foodCardInfo, foodCard.matoChopped, 0, spr_CardMatoChopped);
-	ds_grid_set(global.foodCardInfo, foodCard.matoChopped, 1, "Chopped Mato");
-	ds_grid_set(global.foodCardInfo, foodCard.matoChopped, 2, "Chopped, red zesty vegatable");
-	ds_grid_set(global.foodCardInfo, foodCard.matoChopped, 3, 5);
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_mato, 0, spr_CardMatoChopped);
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_mato, 1, "Chopped Mato");
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_mato, 2, "Chopped, red zesty vegatable");
+	ds_grid_set(global.foodCardInfo, foodCard.chopped_mato, 3, 5);
 	
 	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 0, spr_CardMatoSoup);
 	ds_grid_set(global.foodCardInfo, foodCard.matoSoup, 1, "Mato Soup");
@@ -129,6 +202,7 @@ function InitFoodCardInfo() { // obj_Game
 	ds_grid_set(global.foodCardInfo, foodCard.snowbirdSoup, 3, 40);
 	
 }
+*/
 
 function InitProcCardInfo() { // obj_Game
 	global.procCardInfo = ds_grid_create(20, 20);
@@ -154,6 +228,7 @@ function InitProcCardInfo() { // obj_Game
 	
 }
 
+/*
 function InitProcessGrid() { // obj_Game
 	global.processes = ds_grid_create(20, 20);
 	ds_grid_clear(global.processes, noone);
@@ -177,6 +252,7 @@ function InitProcessGrid() { // obj_Game
 	ds_grid_set(global.processes, procCard.pot, foodCard.snowbirdTenders, foodCard.snowbirdSoup);
 	
 }
+*/
 
 function InitRecipeGrid() { //obj_Player
 	global.recipes = ds_grid_create(50, 50);
@@ -186,10 +262,11 @@ function InitRecipeGrid() { //obj_Player
 	// y values: each ingredient
 	
 				//list			  //x			  //y			 //result value
-	ds_grid_set(global.recipes, foodCard.salad, 0, foodCard.matoChopped);
+	ds_grid_set(global.recipes, foodCard.salad, 0, foodCard.chopped_mato);
 	ds_grid_set(global.recipes, foodCard.salad, 1, foodCard.spinch);
 	
 }
+#endregion
 
 function CleanupGrids() { // obj_Game
 	ds_grid_destroy(global.foodCardInfo);

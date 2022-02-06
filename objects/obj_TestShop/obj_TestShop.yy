@@ -21,8 +21,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Game Structures",
+    "path": "folders/Objects/Game Structures.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_TestShop",
