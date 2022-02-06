@@ -9,4 +9,4 @@ if(hat != -1)
 //draw order
 draw_set_halign(fa_left);
 draw_set_color(c_black);
-draw_text_ext(x+10, y+9,global.foodCardInfo[# order,1 ],15,85);
+draw_text_ext(x+10, y+9,global.foodCardInfo[# 2, order],15,85);

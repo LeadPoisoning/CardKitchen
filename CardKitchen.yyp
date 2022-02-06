@@ -87,7 +87,7 @@
     {"folderPath":"folders/Scripts/Controllers.yy","order":1,"resourceVersion":"1.0","name":"Controllers","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/Cards.yy","order":6,"resourceVersion":"1.0","name":"Cards","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Cards.yy","order":6,"resourceVersion":"1.0","name":"Cards","tags":[],"resourceType":"GMFolder",},
-    {"folderPath":"folders/Objects/group1.yy","order":12,"resourceVersion":"1.0","name":"group1","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/Buttons.yy","order":12,"resourceVersion":"1.0","name":"Buttons","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Customers.yy","order":14,"resourceVersion":"1.0","name":"Customers","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/Game Structures.yy","order":12,"resourceVersion":"1.0","name":"Game Structures","tags":[],"resourceType":"GMFolder",},
   ],

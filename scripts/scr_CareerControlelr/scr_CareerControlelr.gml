@@ -5,12 +5,12 @@ function createCustomer() {
 	
 	var foodOptions = [
 		foodCard.salad,
-		foodCard.snowbirdNuggets,
-		foodCard.snowbirdSoup,
-		foodCard.snowTucky,
-		foodCard.matoSoup,
-		foodCard.tatoMashed,
-		foodCard.tatoFries
+		foodCard.snowbird_nuggets,
+		foodCard.snowbird_soup,
+		foodCard.snowtucky_fried_bird,
+		foodCard.mato_soup,
+		foodCard.baked_tato,
+		foodCard.tato_wedges
 		];
 		
 	var _p = irandom_range(4,6);
